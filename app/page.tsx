@@ -1,6 +1,8 @@
 export default function Home() {
   return (
     <main>
+      <div className="intro-splash" aria-hidden="true"><span>TANEM</span></div>
+
       <section className="hero" id="top">
         <nav className="nav site-width" aria-label="Основная навигация">
           <a className="brand" href="#top" aria-label="TANEM — на главную">
@@ -15,7 +17,7 @@ export default function Home() {
             <a href="#contact">Контакты</a>
           </div>
 
-          <a className="nav-cta" href="https://t.me/tanem_ru" target="_blank" rel="noreferrer">Telegram ↗</a>
+          <a className="nav-cta" href="https://t.me/tanem_ru" target="_blank" rel="noreferrer">Ответим на любые вопросы ↗</a>
         </nav>
 
         <div className="hero-main site-width">
@@ -45,13 +47,19 @@ export default function Home() {
               <p className="hero-mobile-lead">Работы, услуги, цены, отзывы и запись — в одном персональном сайте.</p>
             </div>
 
-            <a className="hero-mobile-examples" href="#examples">Посмотреть готовые сайты <span>↓</span></a>
+            <a className="hero-mobile-examples" href="#examples">
+              <span className="hero-mobile-examples-label">Посмотреть примеры цифрового офиса</span>
+              <span className="hero-mobile-examples-arrow">↓</span>
+            </a>
 
             <div className="hero-preview" aria-label="Пример цифрового офиса на ноутбуке и телефоне">
               <img src="/office-preview.png" alt="Цифровой офис TANEM на ноутбуке и телефоне" />
             </div>
 
-            <p className="hero-mobile-note">Сайт собираем и запускаем сами · без ежемесячной подписки</p>
+            <div className="hero-mobile-note" aria-label="Условия запуска сайта">
+              <span>Сайт собираем и запускаем сами</span>
+              <strong>Бесплатно и без ежемесячной подписки</strong>
+            </div>
 
             <a className="hero-mobile-cta" href="https://t.me/tanem_ru" target="_blank" rel="noreferrer">Получить свой офис уже сегодня <span>→</span></a>
           </div>
