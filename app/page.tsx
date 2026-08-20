@@ -5,7 +5,7 @@ export default function Home() {
         <nav className="nav site-width" aria-label="Основная навигация">
           <a className="brand" href="#top" aria-label="TANEM — на главную">
             <img src="/tanem-logo.webp" alt="" />
-            <span>tanem.ru</span>
+            <span>TANEM</span>
           </a>
 
           <div className="nav-links" aria-label="Разделы сайта">
@@ -15,11 +15,11 @@ export default function Home() {
             <a href="#contact">Контакты</a>
           </div>
 
-          <a className="nav-cta" href="https://t.me/tanem_ru" target="_blank" rel="noreferrer">Получить сайт бесплатно</a>
+          <a className="nav-cta" href="https://t.me/tanem_ru" target="_blank" rel="noreferrer">Telegram ↗</a>
         </nav>
 
         <div className="hero-main site-width">
-          <div className="hero-copy">
+          <div className="hero-copy hero-copy-desktop">
             <p className="eyebrow">TANEM · цифровой офис мастера</p>
             <h1>Цифровой офис<br/>для частного мастера</h1>
             <p className="hero-lead">Персональный сайт, где клиент сразу видит ваши работы, услуги, цены и отзывы — и понимает, как записаться.</p>
@@ -36,6 +36,24 @@ export default function Home() {
               <a className="button primary" href="https://t.me/tanem_ru" target="_blank" rel="noreferrer">Получить цифровой офис бесплатно <span>→</span></a>
               <a className="button secondary" href="#examples">Посмотреть примеры</a>
             </div>
+          </div>
+
+          <div className="hero-mobile" aria-label="Цифровой офис TANEM">
+            <div className="hero-mobile-head">
+              <p className="eyebrow">Персональный сайт для частного мастера</p>
+              <h1>Цифровой офис<br/>мастера</h1>
+              <p className="hero-mobile-lead">Работы, услуги, цены, отзывы и запись — в одном персональном сайте.</p>
+            </div>
+
+            <a className="hero-mobile-examples" href="#examples">Посмотреть готовые сайты <span>↓</span></a>
+
+            <div className="hero-preview" aria-label="Пример цифрового офиса на ноутбуке и телефоне">
+              <img src="/office-preview.png" alt="Цифровой офис TANEM на ноутбуке и телефоне" />
+            </div>
+
+            <p className="hero-mobile-note">Сайт собираем и запускаем сами · без ежемесячной подписки</p>
+
+            <a className="hero-mobile-cta" href="https://t.me/tanem_ru" target="_blank" rel="noreferrer">Получить свой офис уже сегодня <span>→</span></a>
           </div>
         </div>
 
