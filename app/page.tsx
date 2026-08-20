@@ -9,39 +9,41 @@ export default function Home() {
           </a>
 
           <div className="nav-links" aria-label="Разделы сайта">
-            <a href="#about">Что это</a>
+            <a href="#about">Что это?</a>
             <a href="#examples">Примеры</a>
-            <a href="#process">Как работает</a>
+            <a href="#process">Как работает?</a>
             <a href="#contact">Контакты</a>
           </div>
 
-          <a className="nav-cta" href="https://t.me/tanem_ru" target="_blank" rel="noreferrer">Получить сайт</a>
+          <a className="nav-cta" href="https://t.me/tanem_ru" target="_blank" rel="noreferrer">Получить сайт бесплатно</a>
         </nav>
 
         <div className="hero-main site-width">
           <div className="hero-copy">
             <p className="eyebrow">TANEM · цифровой офис мастера</p>
             <h1>Цифровой офис<br/>для частного мастера</h1>
-            <p className="hero-lead">Персональный сайт, где клиент сразу видит ваши работы, услуги, цены и отзывы — и может записаться удобным способом.</p>
+            <p className="hero-lead">Персональный сайт, где клиент сразу видит ваши работы, услуги, цены и отзывы — и понимает, как записаться.</p>
 
             <div className="hero-points" aria-label="Что даёт TANEM">
-              <div><strong>Одна ссылка</strong><span>вместо информации в разных соцсетях</span></div>
-              <div><strong>Прямая запись</strong><span>YCLIENTS, Dikidi, Telegram или звонок</span></div>
-              <div><strong>Свой сайт</strong><span>можно добавить в Яндекс Карты и профиль</span></div>
+              <div><span className="point-index">01</span><strong>Одна ссылка</strong><p>Работы, цены, отзывы, контакты и запись — без поиска по разным страницам.</p></div>
+              <div><span className="point-index">02</span><strong>Прямая запись</strong><p>YCLIENTS, Dikidi, Telegram или звонок — клиент выбирает привычный способ.</p></div>
+              <div><span className="point-index">03</span><strong>Свой сайт</strong><p>Мы сами собираем основу и запускаем сайт. От вас — только проверить информацию.</p></div>
             </div>
+
+            <p className="hero-note">Базовая версия — бесплатно · Без ежемесячной подписки</p>
 
             <div className="hero-actions">
-              <a className="button primary" href="https://t.me/tanem_ru" target="_blank" rel="noreferrer">Получить цифровой офис <span>→</span></a>
+              <a className="button primary" href="https://t.me/tanem_ru" target="_blank" rel="noreferrer">Получить цифровой офис бесплатно <span>→</span></a>
               <a className="button secondary" href="#examples">Посмотреть примеры</a>
             </div>
-
-            <p className="hero-note">Базовая версия — бесплатно. Без ежемесячной подписки.</p>
           </div>
         </div>
 
-        <div className="hero-explain site-width" id="about">
-          <span className="hero-explain-label">Что это</span>
-          <p><strong>TANEM собирает вашу профессиональную информацию в один понятный сайт.</strong> Клиенту не нужно искать цены, работы, отзывы и контакты по разным сервисам.</p>
+        <div className="hero-explain" id="about">
+          <div className="site-width hero-explain-inner">
+            <span className="hero-explain-label">Что это?</span>
+            <p><strong>TANEM — это готовый цифровой офис мастера.</strong> Мы сами собираем профессиональную информацию, оформляем её в персональный сайт и подключаем нужные способы записи. Вам не нужно разбираться в конструкторах и настройках.</p>
+          </div>
         </div>
       </section>
 
@@ -57,19 +59,13 @@ export default function Home() {
 
           <div className="example-grid">
             <a className="example-card" href="https://nonna.tanem.ru/" target="_blank" rel="noreferrer">
-              <div className="example-top">
-                <div><span>Пример 01</span><strong>Персональный сайт мастера</strong></div>
-                <span className="open-label">Открыть ↗</span>
-              </div>
+              <div className="example-top"><div><span>Пример 01</span><strong>Персональный сайт мастера</strong></div><span className="open-label">Открыть ↗</span></div>
               <div className="device-stage"><img className="device-image" src="/tanem-devices.webp" alt="Сайт TANEM на MacBook и iPhone" /></div>
               <div className="example-meta"><span>Услуги и цены</span><i/><span>Работы</span><i/><span>Отзывы</span><i/><span>Запись</span></div>
             </a>
 
             <a className="example-card" href="https://anastasia.tanem.ru/" target="_blank" rel="noreferrer">
-              <div className="example-top">
-                <div><span>Пример 02</span><strong>Сайт в стиле мастера</strong></div>
-                <span className="open-label">Открыть ↗</span>
-              </div>
+              <div className="example-top"><div><span>Пример 02</span><strong>Сайт в стиле мастера</strong></div><span className="open-label">Открыть ↗</span></div>
               <div className="device-stage stage-alt"><img className="device-image" src="/tanem-devices.webp" alt="Сайт TANEM на MacBook и iPhone" /></div>
               <div className="example-meta"><span>ПК-версия</span><i/><span>Телефон</span><i/><span>Своя ссылка</span><i/><span>Прямая связь</span></div>
             </a>
