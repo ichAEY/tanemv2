@@ -2,6 +2,11 @@
   display: none;
 }
 
+@keyframes tanemArrowDown {
+  0%, 100% { transform: translateY(0); opacity: .78; }
+  50% { transform: translateY(5px); opacity: 1; }
+}
+
 @media (max-width: 760px) {
   .hero {
     height: 100svh;
@@ -43,16 +48,24 @@
 
   .nav-cta {
     position: relative;
+    max-width: 160px;
     padding: 8px 1px 6px;
     border: 0;
     border-radius: 0;
     background: transparent;
     color: #4b4550;
-    font-size: 10px;
-    font-weight: 540;
-    letter-spacing: .01em;
+    font-size: 0;
+    font-weight: 520;
+    letter-spacing: -.005em;
+    line-height: 1.2;
+    text-align: right;
     box-shadow: none;
     backdrop-filter: none;
+  }
+
+  .nav-cta::before {
+    content: "Ответим на любые вопросы ↗";
+    font-size: 10px;
   }
 
   .nav-cta::after {
@@ -87,10 +100,10 @@
     height: 100%;
     min-height: 0;
     display: grid;
-    grid-template-rows: auto auto minmax(112px, 1fr) auto 54px;
+    grid-template-rows: auto auto minmax(128px, 1fr) auto 54px;
     align-items: stretch;
     gap: 0;
-    padding: clamp(15px, 2.7svh, 24px) 0 12px;
+    padding: clamp(13px, 2.3svh, 21px) 0 12px;
   }
 
   .hero-mobile-head {
@@ -98,7 +111,7 @@
   }
 
   .hero-mobile .eyebrow {
-    margin: 0 0 clamp(7px, 1.35svh, 12px);
+    margin: 0 0 clamp(7px, 1.25svh, 11px);
     color: #746978;
     font-size: 8px;
     font-weight: 560;
@@ -109,19 +122,20 @@
   .hero-mobile h1 {
     margin: 0 auto;
     max-width: 350px;
-    font-size: clamp(38px, 10.9vw, 50px);
-    line-height: 1.01;
-    letter-spacing: -.048em;
-    font-weight: 350;
+    font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+    font-size: clamp(38px, 10.65vw, 49px);
+    line-height: 1.02;
+    letter-spacing: -.042em;
+    font-weight: 480;
     text-align: center;
-    color: #1e1a20;
+    color: #1c1920;
   }
 
   .hero-mobile-lead {
     max-width: 340px;
-    margin: clamp(10px, 1.7svh, 15px) auto 0;
+    margin: clamp(9px, 1.55svh, 14px) auto 0;
     color: #5f5862;
-    font-size: clamp(12px, 3.55vw, 14px);
+    font-size: clamp(12px, 3.5vw, 14px);
     line-height: 1.43;
     letter-spacing: -.01em;
   }
@@ -130,7 +144,7 @@
     position: relative;
     align-self: center;
     justify-self: center;
-    margin-top: clamp(10px, 1.7svh, 16px);
+    margin-top: clamp(9px, 1.45svh, 14px);
     min-height: auto;
     padding: 7px 1px 6px;
     display: inline-flex;
@@ -157,14 +171,16 @@
   }
 
   .hero-mobile-examples span {
+    display: inline-block;
     margin-left: 7px;
+    animation: tanemArrowDown 1.35s ease-in-out infinite;
   }
 
   .hero-preview {
     position: relative;
-    width: calc(100% + 24px);
+    width: calc(100% + 54px);
     min-height: 0;
-    margin: 0 -12px;
+    margin: -2px -27px 0;
     display: grid;
     place-items: center;
     overflow: visible;
@@ -176,9 +192,10 @@
 
   .hero-preview img {
     position: relative;
-    width: 100%;
+    width: 112%;
+    max-width: none;
     height: 100%;
-    max-height: min(300px, 35svh);
+    max-height: min(345px, 38svh);
     object-fit: contain;
     filter: none !important;
     opacity: 1 !important;
@@ -191,34 +208,37 @@
   }
 
   .hero-mobile-note {
-    margin: 0 auto clamp(9px, 1.4svh, 13px);
-    padding: 0;
-    max-width: 340px;
-    border: 0;
-    background: transparent;
+    width: 100%;
+    margin: 0 auto clamp(8px, 1.25svh, 11px);
+    padding: 8px 12px 9px;
+    border: 1px solid rgba(74,62,80,.12);
+    border-radius: 12px;
+    background: rgba(255,255,255,.38);
     color: #625b65;
     text-align: center;
     font-size: 0;
-    line-height: 1.35;
+    line-height: 1.3;
     font-weight: 430;
+    box-shadow: inset 0 1px rgba(255,255,255,.55);
+    backdrop-filter: blur(8px);
   }
 
   .hero-mobile-note::before {
     content: "Сайт собираем и запускаем сами";
     display: block;
-    color: #655e68;
+    color: #5d5660;
     font-size: 11px;
-    font-weight: 450;
+    font-weight: 470;
     letter-spacing: -.005em;
   }
 
   .hero-mobile-note::after {
     content: "Бесплатно и без ежемесячной подписки";
     display: block;
-    margin-top: 4px;
-    color: #29252c;
-    font-size: 13px;
-    font-weight: 670;
+    margin-top: 3px;
+    color: #252129;
+    font-size: 12.5px;
+    font-weight: 680;
     letter-spacing: -.012em;
   }
 
@@ -228,30 +248,36 @@
   }
 
   .hero-mobile-cta {
+    position: relative;
     min-height: 54px;
     height: 54px;
     margin: 0;
-    padding: 0 18px;
-    border: 1px solid rgba(72,93,123,.24);
+    padding: 0 48px;
+    border: 1px solid rgba(57,64,110,.24);
     border-radius: 15px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 14px;
-    background: linear-gradient(135deg, #6f86a6 0%, #5e7596 100%);
+    justify-content: center;
+    gap: 0;
+    background: linear-gradient(135deg, #6575a4 0%, #55658f 52%, #4d5d86 100%);
     color: #fff;
     font-size: 13px;
-    font-weight: 580;
+    font-weight: 590;
     letter-spacing: -.01em;
-    box-shadow: 0 10px 25px rgba(65,78,100,.16), inset 0 1px rgba(255,255,255,.16);
+    text-align: center;
+    box-shadow: 0 11px 27px rgba(72,74,118,.20), inset 0 1px rgba(255,255,255,.16);
   }
 
   .hero-mobile-cta:hover {
-    background: linear-gradient(135deg, #7a90af 0%, #667d9e 100%);
-    box-shadow: 0 12px 28px rgba(65,78,100,.20), inset 0 1px rgba(255,255,255,.18);
+    background: linear-gradient(135deg, #6d7cab 0%, #5b6b96 52%, #53638c 100%);
+    box-shadow: 0 13px 30px rgba(72,74,118,.24), inset 0 1px rgba(255,255,255,.18);
   }
 
   .hero-mobile-cta span {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
     font-size: 17px;
     line-height: 1;
   }
@@ -272,18 +298,22 @@
   }
 
   .nav-cta {
+    max-width: 145px;
     padding: 7px 1px 5px;
+  }
+
+  .nav-cta::before {
     font-size: 9px;
   }
 
   .hero-mobile {
-    grid-template-rows: auto auto minmax(92px, 1fr) auto 52px;
-    padding-top: 13px;
+    grid-template-rows: auto auto minmax(104px, 1fr) auto 52px;
+    padding-top: 12px;
     padding-bottom: 9px;
   }
 
   .hero-mobile h1 {
-    font-size: 37px;
+    font-size: 36px;
   }
 
   .hero-mobile-lead {
@@ -291,16 +321,25 @@
   }
 
   .hero-mobile-examples {
-    margin-top: 9px;
+    margin-top: 8px;
     font-size: 10px;
   }
 
+  .hero-preview {
+    width: calc(100% + 44px);
+    margin-left: -22px;
+    margin-right: -22px;
+  }
+
   .hero-preview img {
-    max-height: min(250px, 32svh);
+    width: 110%;
+    max-height: min(285px, 35svh);
   }
 
   .hero-mobile-note {
     margin-bottom: 7px;
+    padding-top: 7px;
+    padding-bottom: 8px;
   }
 
   .hero-mobile-note::before {
@@ -308,14 +347,20 @@
   }
 
   .hero-mobile-note::after {
-    font-size: 12px;
+    font-size: 11.5px;
   }
 
   .hero-mobile-cta {
     min-height: 52px;
     height: 52px;
     border-radius: 14px;
+    padding-left: 42px;
+    padding-right: 42px;
     font-size: 12px;
+  }
+
+  .hero-mobile-cta span {
+    right: 16px;
   }
 }
 
@@ -326,8 +371,8 @@
   }
 
   .hero-mobile {
-    grid-template-rows: auto auto minmax(76px, 1fr) auto 50px;
-    padding-top: 10px;
+    grid-template-rows: auto auto minmax(84px, 1fr) auto 50px;
+    padding-top: 9px;
     padding-bottom: 8px;
   }
 
@@ -336,26 +381,34 @@
   }
 
   .hero-mobile h1 {
-    font-size: clamp(34px, 9.8vw, 40px);
+    font-size: clamp(33px, 9.5vw, 39px);
   }
 
   .hero-mobile-lead {
-    margin-top: 8px;
+    margin-top: 7px;
     font-size: 11px;
   }
 
   .hero-mobile-examples {
-    margin-top: 7px;
+    margin-top: 6px;
     padding: 6px 1px 5px;
     font-size: 9px;
   }
 
+  .hero-preview {
+    width: calc(100% + 42px);
+    margin-left: -21px;
+    margin-right: -21px;
+  }
+
   .hero-preview img {
-    max-height: min(205px, 29svh);
+    width: 108%;
+    max-height: min(235px, 31svh);
   }
 
   .hero-mobile-note {
     margin-bottom: 6px;
+    padding: 6px 10px 7px;
   }
 
   .hero-mobile-note::before {
@@ -364,12 +417,18 @@
 
   .hero-mobile-note::after {
     margin-top: 2px;
-    font-size: 11px;
+    font-size: 10.5px;
   }
 
   .hero-mobile-cta {
     min-height: 50px;
     height: 50px;
     font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-mobile-examples span {
+    animation: none;
   }
 }
