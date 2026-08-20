@@ -1,0 +1,40 @@
+@media (max-width: 760px) {
+  /* Привязываем ссылку на примеры к визуалу, а не к текстовому блоку сверху. */
+  .hero-mobile-examples {
+    margin-top: clamp(21px, 3svh, 27px) !important;
+    margin-bottom: -19px !important;
+  }
+
+  /* Макет остаётся ровно по центру. */
+  .hero-preview {
+    justify-self: center;
+  }
+
+  /* Информационный блок — просто текст, без разделяющей линии. */
+  .hero-mobile-note {
+    border-top: 0 !important;
+    padding-top: 4px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-mobile-examples {
+    margin-top: 17px !important;
+    margin-bottom: -16px !important;
+  }
+
+  .hero-mobile-note {
+    padding-top: 3px !important;
+  }
+}
+
+@media (max-height: 650px) and (max-width: 760px) {
+  .hero-mobile-examples {
+    margin-top: 13px !important;
+    margin-bottom: -14px !important;
+  }
+
+  .hero-mobile-note {
+    padding-top: 3px !important;
+  }
+}
