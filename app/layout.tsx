@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./mobile-v2.css";
 
 export const metadata: Metadata = {
   title: "TANEM — цифровой офис",
