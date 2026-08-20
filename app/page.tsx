@@ -1,138 +1,133 @@
-const Icon = ({ name }: { name: "site" | "calendar" | "portfolio" | "reviews" | "contacts" }) => {
-  const paths = {
-    site: <><rect x="5" y="5" width="14" height="14" rx="4"/><circle cx="12" cy="12" r="3"/><circle cx="17" cy="7" r=".8" fill="currentColor" stroke="none"/></>,
-    calendar: <><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M8 3v4m8-4v4M4 10h16m-11 4 2 2 4-4"/></>,
-    portfolio: <><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="9" cy="9" r="1.5"/><path d="m5 17 4.2-4.2 3 3L15 13l4 4"/></>,
-    reviews: <><path d="M20 11.5a7.5 7.5 0 0 1-8 7.5 8.6 8.6 0 0 1-3-.6L4 20l1.6-4.1A7.2 7.2 0 0 1 4 11.5a7.5 7.5 0 0 1 8-7.5 7.5 7.5 0 0 1 8 7.5Z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></>,
-    contacts: <><rect x="4" y="5" width="16" height="15" rx="3"/><path d="m5 17 4.2-4.2 3 3L15 13l4 4M8 8h8"/></>,
-  };
-  return <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">{paths[name]}</svg>;
-};
-
-const features = [
-  ["site", "Персональный сайт"],
-  ["calendar", "Онлайн-запись"],
-  ["portfolio", "Портфолио"],
-  ["reviews", "Отзывы"],
-  ["contacts", "Контакты"],
-] as const;
-
-function DeviceMockup({ variant }: { variant: "dark" | "light" }) {
-  return (
-    <div className={`devices ${variant}`} aria-hidden="true">
-      <div className="laptop">
-        <div className="laptop-camera" />
-        <div className="laptop-screen">
-          <div className="mini-nav"><b>TANEM</b><i/><i/><i/></div>
-          <div className="mini-copy">
-            <span>{variant === "dark" ? "Архитектура" : "Чистота"}</span>
-            <span>{variant === "dark" ? "в деталях" : "формы"}</span>
-            <small>Персональный сайт мастера</small>
-            <button>Записаться</button>
-          </div>
-          <div className="mini-art"><span/><span/><span/></div>
-        </div>
-        <div className="laptop-base" />
-      </div>
-      <div className="phone">
-        <div className="phone-island" />
-        <div className="phone-screen">
-          <b>TANEM</b>
-          <strong>{variant === "dark" ? "Архитектура\nв деталях" : "Чистота\nформы"}</strong>
-          <div className="phone-art" />
-          <span />
-          <span />
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function Home() {
   return (
     <main>
-      <div className="page-shell">
-        <section className="hero" id="top">
-          <div className="hero-art" />
-          <nav className="nav" aria-label="Основная навигация">
-            <a className="logo" href="#top" aria-label="TANEM — на главную">TANEM</a>
-            <div className="nav-links">
-              <a href="#examples">Примеры</a>
-              <a href="#process">Как это работает</a>
-              <a href="#masters">Для мастеров</a>
-            </div>
-            <a className="nav-cta" href="#request">Получить сайт</a>
-          </nav>
+      <section className="hero" id="top">
+        <nav className="nav site-width" aria-label="Основная навигация">
+          <a className="brand" href="#top" aria-label="TANEM — на главную">
+            <img src="/tanem-logo.webp" alt="" />
+            <span>tanem.ru</span>
+          </a>
 
+          <div className="nav-links" aria-label="Разделы сайта">
+            <a href="#about">Что это</a>
+            <a href="#examples">Примеры</a>
+            <a href="#process">Как работает</a>
+            <a href="#contact">Контакты</a>
+          </div>
+
+          <a className="nav-cta" href="https://t.me/tanem_ru" target="_blank" rel="noreferrer">Получить сайт</a>
+        </nav>
+
+        <div className="hero-main site-width">
           <div className="hero-copy">
-            <p className="eyebrow">Персональный сайт мастера</p>
+            <p className="eyebrow">TANEM · цифровой офис мастера</p>
             <h1>Цифровой офис<br/>для частного мастера</h1>
-            <p className="hero-lead">Сайт, работы, цены, отзывы, контакты<br className="desktop-break"/> и запись — в одном месте.</p>
+            <p className="hero-lead">Персональный сайт, где клиент сразу видит ваши работы, услуги, цены и отзывы — и может записаться удобным способом.</p>
+
+            <div className="hero-points" aria-label="Что даёт TANEM">
+              <div><strong>Одна ссылка</strong><span>вместо информации в разных соцсетях</span></div>
+              <div><strong>Прямая запись</strong><span>YCLIENTS, Dikidi, Telegram или звонок</span></div>
+              <div><strong>Свой сайт</strong><span>можно добавить в Яндекс Карты и профиль</span></div>
+            </div>
+
             <div className="hero-actions">
-              <a className="button primary" href="#request">Получить сайт <span>→</span></a>
+              <a className="button primary" href="https://t.me/tanem_ru" target="_blank" rel="noreferrer">Получить цифровой офис <span>→</span></a>
               <a className="button secondary" href="#examples">Посмотреть примеры</a>
             </div>
-          </div>
 
-          <div className="feature-strip">
-            {features.map(([name, label]) => (
-              <div className="feature" key={name}>
-                <Icon name={name}/><span>{label}</span>
-              </div>
-            ))}
+            <p className="hero-note">Базовая версия — бесплатно. Без ежемесячной подписки.</p>
           </div>
-        </section>
+        </div>
 
-        <section className="examples" id="examples">
-          <div className="section-heading">
+        <div className="hero-explain site-width" id="about">
+          <span className="hero-explain-label">Что это</span>
+          <p><strong>TANEM собирает вашу профессиональную информацию в один понятный сайт.</strong> Клиенту не нужно искать цены, работы, отзывы и контакты по разным сервисам.</p>
+        </div>
+      </section>
+
+      <section className="examples" id="examples">
+        <div className="site-width">
+          <div className="section-head">
             <div>
-              <p className="section-kicker">Примеры</p>
-              <h2>Готовые сайты для мастеров</h2>
-              <p>Современные сайты, которые помогают привлекать клиентов<br className="desktop-break"/> и выглядеть профессионально.</p>
+              <p className="section-kicker">Примеры цифровых офисов</p>
+              <h2>Ваш сайт выглядит<br/>как самостоятельный бренд</h2>
             </div>
-            <a className="outline-link" href="#example-grid">Смотреть все примеры <span>→</span></a>
+            <p>Не анкета внутри платформы и не ещё одна страница с кнопками. Это отдельный персональный сайт мастера — с мобильной и компьютерной версией.</p>
           </div>
 
-          <div className="example-grid" id="example-grid">
+          <div className="example-grid">
             <a className="example-card" href="https://nonna.tanem.ru/" target="_blank" rel="noreferrer">
-              <div className="card-top"><span>Готовый сайт №1</span><i>Открыть ↗</i></div>
-              <DeviceMockup variant="dark" />
+              <div className="example-top">
+                <div><span>Пример 01</span><strong>Персональный сайт мастера</strong></div>
+                <span className="open-label">Открыть ↗</span>
+              </div>
+              <div className="device-stage"><img className="device-image" src="/tanem-devices.webp" alt="Сайт TANEM на MacBook и iPhone" /></div>
+              <div className="example-meta"><span>Услуги и цены</span><i/><span>Работы</span><i/><span>Отзывы</span><i/><span>Запись</span></div>
             </a>
+
             <a className="example-card" href="https://anastasia.tanem.ru/" target="_blank" rel="noreferrer">
-              <div className="card-top"><span>Готовый сайт №2</span><i>Открыть ↗</i></div>
-              <DeviceMockup variant="light" />
+              <div className="example-top">
+                <div><span>Пример 02</span><strong>Сайт в стиле мастера</strong></div>
+                <span className="open-label">Открыть ↗</span>
+              </div>
+              <div className="device-stage stage-alt"><img className="device-image" src="/tanem-devices.webp" alt="Сайт TANEM на MacBook и iPhone" /></div>
+              <div className="example-meta"><span>ПК-версия</span><i/><span>Телефон</span><i/><span>Своя ссылка</span><i/><span>Прямая связь</span></div>
             </a>
           </div>
-        </section>
 
-        <section className="process" id="process">
-          <p className="section-kicker">Как это работает</p>
-          <h2>От карточки мастера<br/>до готового сайта</h2>
+          <div className="inside-block">
+            <div className="inside-intro">
+              <p className="section-kicker">Что находится внутри</p>
+              <h3>Клиент открывает сайт<br/>и сразу понимает, что делать</h3>
+              <p>Каждый блок отвечает на конкретный вопрос клиента: кто мастер, сколько стоит услуга, как выглядят работы и как записаться.</p>
+            </div>
+
+            <div className="inside-list">
+              <article><span>01</span><div><strong>Работы и доверие</strong><p>Портфолио, отзывы, опыт и информация о мастере собраны в одном месте.</p></div></article>
+              <article><span>02</span><div><strong>Услуги и цены</strong><p>Клиент заранее понимает стоимость и выбирает подходящую услугу без переписки.</p></div></article>
+              <article><span>03</span><div><strong>Запись и связь</strong><p>Подключаем YCLIENTS, Dikidi, Telegram, телефон или другой привычный вам способ.</p></div></article>
+              <article><span>04</span><div><strong>Одна постоянная ссылка</strong><p>Её можно поставить в Яндекс Карты, соцсети, мессенджеры и отправлять клиентам.</p></div></article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="process" id="process">
+        <div className="site-width">
+          <div className="process-head">
+            <div><p className="section-kicker">Как это работает</p><h2>От вашей карточки<br/>до готового сайта</h2></div>
+            <p>Мы не заставляем мастера разбираться в конструкторах и настройках. Нужную основу собираем сами, затем показываем готовый результат.</p>
+          </div>
+
           <div className="steps">
-            <article><span>01</span><h3>Собираем основу</h3><p>Берём услуги, цены, отзывы и контакты из ваших открытых источников.</p></article>
-            <article><span>02</span><h3>Создаём сайт</h3><p>Собираем аккуратную персональную страницу под ваш стиль и услуги.</p></article>
-            <article><span>03</span><h3>Подключаем запись</h3><p>Добавляем удобный переход в систему записи, мессенджер или по телефону.</p></article>
+            <article><span>01</span><h3>Собираем информацию</h3><p>Берём открытые данные: услуги, цены, отзывы, фотографии, контакты и способы записи.</p></article>
+            <article><span>02</span><h3>Создаём цифровой офис</h3><p>Собираем персональный дизайн под мастера и адаптируем сайт для телефона и компьютера.</p></article>
+            <article><span>03</span><h3>Вы получаете готовую ссылку</h3><p>Её можно сразу отправлять клиентам, добавить в Яндекс Карты и использовать в соцсетях.</p></article>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="masters" id="masters">
-          <div>
-            <p className="section-kicker">Для мастеров</p>
-            <h2>Всё важное<br/>в одной ссылке</h2>
+      <section className="contact" id="contact">
+        <div className="site-width contact-grid">
+          <div className="contact-copy">
+            <p className="section-kicker">Связаться с TANEM</p>
+            <h2>Хотите свой<br/>цифровой офис?</h2>
+            <p>Пришлите ссылку на вашу карточку или профиль. Мы посмотрим, как можно собрать сайт именно под вас.</p>
+            <div className="contact-actions">
+              <a className="button light" href="https://t.me/tanem_ru" target="_blank" rel="noreferrer">Подать заявку <span>→</span></a>
+              <a className="contact-link" href="https://t.me/tanem_ru" target="_blank" rel="noreferrer">Telegram · @tanem_ru</a>
+            </div>
           </div>
-          <p>Клиент сразу видит ваши работы, понимает стоимость и может записаться. Без поиска информации по разным социальным сетям.</p>
-        </section>
 
-        <section className="request" id="request">
-          <div className="request-glow" />
-          <p className="section-kicker">TANEM</p>
-          <h2>Ваш цифровой офис<br/>может быть следующим</h2>
-          <p>Посмотрите примеры и расскажите, какой сайт нужен вам.</p>
-          <a className="button primary" href="#examples">Посмотреть примеры <span>→</span></a>
-        </section>
+          <div className="contact-side">
+            <div><span>01</span><strong>Посмотреть примеры</strong><a href="#examples">Перейти к сайтам ↑</a></div>
+            <div><span>02</span><strong>Написать нам</strong><a href="https://t.me/tanem_ru" target="_blank" rel="noreferrer">Открыть Telegram ↗</a></div>
+            <div><span>03</span><strong>Наш адрес</strong><a href="#top">tanem.ru</a></div>
+          </div>
+        </div>
 
-        <footer><a className="logo" href="#top">TANEM</a><span>Цифровые офисы для частных мастеров</span><span>2026</span></footer>
-      </div>
+        <div className="site-width footer-line"><span>TANEM</span><span>Цифровые офисы для частных мастеров</span><span>2026</span></div>
+      </section>
     </main>
   );
 }
