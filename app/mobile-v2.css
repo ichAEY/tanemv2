@@ -8,12 +8,14 @@
     min-height: 100svh;
     max-height: 100svh;
     background:
-      radial-gradient(circle at 50% 8%, rgba(255,255,255,.92), transparent 34%),
-      linear-gradient(180deg, #f5f7f9 0%, #eef1f4 56%, #e9edf1 100%);
+      radial-gradient(circle at 4% 12%, rgba(181,166,239,.55), transparent 33%),
+      radial-gradient(circle at 98% 10%, rgba(255,215,196,.62), transparent 30%),
+      radial-gradient(circle at 86% 72%, rgba(211,184,246,.42), transparent 34%),
+      linear-gradient(145deg, #fffdfd 0%, #f8f3f8 56%, #fff8f4 100%);
   }
 
   .hero::before {
-    opacity: .025;
+    opacity: .035;
   }
 
   .hero::after {
@@ -24,7 +26,7 @@
     flex: 0 0 72px;
     min-height: 72px;
     padding: 8px 0;
-    border-bottom: 1px solid rgba(26,34,43,.10);
+    border-bottom: 1px solid rgba(38,31,42,.10);
   }
 
   .brand {
@@ -32,7 +34,7 @@
     font-size: 15px;
     font-weight: 430;
     letter-spacing: .17em;
-    color: #1b232c;
+    color: #211d24;
   }
 
   .brand img {
@@ -40,22 +42,33 @@
   }
 
   .nav-cta {
-    padding: 10px 14px;
-    border: 1px solid rgba(76,101,124,.16);
-    border-radius: 999px;
-    background: linear-gradient(180deg, rgba(235,241,247,.94), rgba(222,231,239,.90));
-    color: #33485b;
+    position: relative;
+    padding: 8px 1px 6px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: #4b4550;
     font-size: 10px;
     font-weight: 540;
-    letter-spacing: .005em;
-    box-shadow: 0 5px 16px rgba(46,65,82,.07), inset 0 1px rgba(255,255,255,.75);
-    backdrop-filter: blur(10px);
+    letter-spacing: .01em;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .nav-cta::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2px;
+    height: 1px;
+    background: rgba(75,69,80,.28);
   }
 
   .nav-cta:hover {
-    background: linear-gradient(180deg, #f1f5f8, #e4ecf3);
-    color: #263b4e;
-    box-shadow: 0 6px 18px rgba(46,65,82,.09), inset 0 1px #fff;
+    background: transparent;
+    color: #211d24;
+    box-shadow: none;
   }
 
   .hero-main {
@@ -86,9 +99,9 @@
 
   .hero-mobile .eyebrow {
     margin: 0 0 clamp(7px, 1.35svh, 12px);
-    color: #66717c;
+    color: #746978;
     font-size: 8px;
-    font-weight: 580;
+    font-weight: 560;
     letter-spacing: .16em;
     text-transform: uppercase;
   }
@@ -101,35 +114,46 @@
     letter-spacing: -.048em;
     font-weight: 350;
     text-align: center;
-    color: #171d24;
+    color: #1e1a20;
   }
 
   .hero-mobile-lead {
     max-width: 340px;
     margin: clamp(10px, 1.7svh, 15px) auto 0;
-    color: #58616b;
+    color: #5f5862;
     font-size: clamp(12px, 3.55vw, 14px);
     line-height: 1.43;
     letter-spacing: -.01em;
   }
 
   .hero-mobile-examples {
+    position: relative;
     align-self: center;
     justify-self: center;
     margin-top: clamp(10px, 1.7svh, 16px);
-    min-height: 37px;
-    padding: 0 15px;
+    min-height: auto;
+    padding: 7px 1px 6px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(27,35,44,.11);
-    border-radius: 999px;
-    background: rgba(255,255,255,.50);
-    color: #28313b;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: #343036;
     font-size: 11px;
-    font-weight: 520;
+    font-weight: 540;
     letter-spacing: -.005em;
-    backdrop-filter: blur(8px);
+    backdrop-filter: none;
+  }
+
+  .hero-mobile-examples::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2px;
+    height: 1px;
+    background: rgba(52,48,54,.24);
   }
 
   .hero-mobile-examples span {
@@ -167,12 +191,12 @@
   }
 
   .hero-mobile-note {
-    margin: 0 auto clamp(8px, 1.25svh, 12px);
+    margin: 0 auto clamp(9px, 1.4svh, 13px);
     padding: 0;
     max-width: 340px;
     border: 0;
     background: transparent;
-    color: #68737d;
+    color: #625b65;
     text-align: center;
     font-size: 0;
     line-height: 1.35;
@@ -182,19 +206,20 @@
   .hero-mobile-note::before {
     content: "Сайт собираем и запускаем сами";
     display: block;
-    color: #68737d;
-    font-size: 10px;
-    font-weight: 430;
+    color: #655e68;
+    font-size: 11px;
+    font-weight: 450;
+    letter-spacing: -.005em;
   }
 
   .hero-mobile-note::after {
     content: "Бесплатно и без ежемесячной подписки";
     display: block;
-    margin-top: 3px;
-    color: #344453;
-    font-size: 11px;
-    font-weight: 650;
-    letter-spacing: -.005em;
+    margin-top: 4px;
+    color: #29252c;
+    font-size: 13px;
+    font-weight: 670;
+    letter-spacing: -.012em;
   }
 
   .hero-mobile-note strong {
@@ -207,23 +232,23 @@
     height: 54px;
     margin: 0;
     padding: 0 18px;
-    border: 1px solid rgba(61,111,148,.16);
+    border: 1px solid rgba(72,93,123,.24);
     border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 14px;
-    background: linear-gradient(135deg, #dcefff 0%, #cfe6f8 100%);
-    color: #19354b;
+    background: linear-gradient(135deg, #6f86a6 0%, #5e7596 100%);
+    color: #fff;
     font-size: 13px;
-    font-weight: 590;
+    font-weight: 580;
     letter-spacing: -.01em;
-    box-shadow: 0 10px 26px rgba(65,105,136,.13), inset 0 1px rgba(255,255,255,.82);
+    box-shadow: 0 10px 25px rgba(65,78,100,.16), inset 0 1px rgba(255,255,255,.16);
   }
 
   .hero-mobile-cta:hover {
-    background: linear-gradient(135deg, #e6f4ff 0%, #d7ebfa 100%);
-    box-shadow: 0 12px 28px rgba(65,105,136,.16), inset 0 1px #fff;
+    background: linear-gradient(135deg, #7a90af 0%, #667d9e 100%);
+    box-shadow: 0 12px 28px rgba(65,78,100,.20), inset 0 1px rgba(255,255,255,.18);
   }
 
   .hero-mobile-cta span {
@@ -247,7 +272,7 @@
   }
 
   .nav-cta {
-    padding: 9px 11px;
+    padding: 7px 1px 5px;
     font-size: 9px;
   }
 
@@ -266,7 +291,6 @@
   }
 
   .hero-mobile-examples {
-    min-height: 34px;
     margin-top: 9px;
     font-size: 10px;
   }
@@ -280,11 +304,11 @@
   }
 
   .hero-mobile-note::before {
-    font-size: 9px;
+    font-size: 10px;
   }
 
   .hero-mobile-note::after {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .hero-mobile-cta {
@@ -321,9 +345,8 @@
   }
 
   .hero-mobile-examples {
-    min-height: 31px;
     margin-top: 7px;
-    padding: 0 12px;
+    padding: 6px 1px 5px;
     font-size: 9px;
   }
 
@@ -336,12 +359,12 @@
   }
 
   .hero-mobile-note::before {
-    font-size: 8px;
+    font-size: 9px;
   }
 
   .hero-mobile-note::after {
     margin-top: 2px;
-    font-size: 9px;
+    font-size: 11px;
   }
 
   .hero-mobile-cta {
