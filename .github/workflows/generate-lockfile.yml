@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - package.json
+      - .github/workflows/generate-lockfile.yml
   workflow_dispatch:
 
 permissions:
@@ -18,8 +19,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22.13.0'
-          cache: npm
-          cache-dependency-path: package.json
       - name: Generate package-lock.json if missing
         run: |
           if [ -f package-lock.json ]; then
@@ -29,7 +28,11 @@ jobs:
           npm install --package-lock-only --ignore-scripts --no-audit --no-fund
       - name: Commit lockfile
         run: |
-          if git diff --quiet -- package-lock.json && [ -f package-lock.json ]; then
+          if [ ! -f package-lock.json ]; then
+            echo "package-lock.json was not generated"
+            exit 1
+          fi
+          if git diff --quiet -- package-lock.json && git ls-files --error-unmatch package-lock.json >/dev/null 2>&1; then
             exit 0
           fi
           git config user.name "github-actions[bot]"
