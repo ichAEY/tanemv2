@@ -8,12 +8,17 @@
 
 @keyframes tanemArrowDown {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
+  50% { transform: translateY(-2px); }
 }
 
-@keyframes tanemCtaShine {
-  0%, 72% { background-position: 180% 0, 0 0; }
-  100% { background-position: -110% 0, 0 0; }
+@keyframes tanemCtaDoubleShine {
+  0%, 4% { transform: translateX(-220%) skewX(-18deg); opacity: 0; }
+  5% { opacity: 1; }
+  12% { transform: translateX(430%) skewX(-18deg); opacity: 0; }
+  15% { transform: translateX(-220%) skewX(-18deg); opacity: 0; }
+  16% { opacity: 1; }
+  23% { transform: translateX(430%) skewX(-18deg); opacity: 0; }
+  100% { transform: translateX(430%) skewX(-18deg); opacity: 0; }
 }
 
 @keyframes tanemSplashOut {
@@ -46,14 +51,16 @@
   .intro-splash span {
     color: #29242c;
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
-    font-size: 16px;
-    font-weight: 470;
-    letter-spacing: .17em;
+    font-size: 28px;
+    font-weight: 440;
+    letter-spacing: .14em;
     text-transform: lowercase;
     animation: tanemSplashText 1.25s ease both;
   }
 
   .hero {
+    --tanem-blue: #455db6;
+    --tanem-blue-dark: #344995;
     height: 100svh;
     min-height: 100svh;
     max-height: 100svh;
@@ -118,8 +125,8 @@
 
   .nav-cta:hover {
     background: transparent;
-    color: #171419;
-    border-bottom-color: rgba(23,20,25,.48);
+    color: var(--tanem-blue-dark);
+    border-bottom-color: rgba(52,73,149,.45);
     box-shadow: none;
   }
 
@@ -150,7 +157,7 @@
   }
 
   .hero-mobile .eyebrow {
-    margin: 0 0 clamp(7px, 1.2svh, 10px);
+    margin: 0 0 clamp(9px, 1.45svh, 13px);
     color: #746978;
     font-size: 8px;
     font-weight: 560;
@@ -163,8 +170,8 @@
     max-width: 350px;
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
     font-size: clamp(38px, 10.55vw, 49px);
-    line-height: 1.02;
-    letter-spacing: -.037em;
+    line-height: 1.04;
+    letter-spacing: -.035em;
     font-weight: 430;
     text-align: center;
     color: #1b1820;
@@ -172,24 +179,23 @@
 
   .hero-mobile-lead {
     max-width: 340px;
-    margin: clamp(9px, 1.45svh, 13px) auto 0;
+    margin: clamp(15px, 2.15svh, 20px) auto 0;
     color: #5f5862;
     font-size: clamp(12px, 3.45vw, 14px);
-    line-height: 1.43;
+    line-height: 1.48;
     letter-spacing: -.01em;
   }
 
   .hero-mobile-examples {
     position: relative;
-    align-self: center;
+    align-self: end;
     justify-self: center;
-    margin-top: clamp(8px, 1.35svh, 13px);
-    padding: 6px 0 5px;
+    margin: clamp(7px, 1.1svh, 10px) 0 -2px;
+    padding: 5px 0 6px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     border: 0;
-    border-bottom: 1px solid rgba(52,48,54,.26);
     border-radius: 0;
     background: transparent;
     color: #302c33;
@@ -200,21 +206,27 @@
   }
 
   .hero-mobile-examples::after {
-    display: none;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 18px;
+    bottom: 2px;
+    height: 1px;
+    background: rgba(52,48,54,.26);
   }
 
   .hero-mobile-examples span {
     display: inline-block;
-    margin-left: 7px;
-    padding-bottom: 3px;
-    animation: tanemArrowDown 1.35s ease-in-out infinite;
+    margin-left: 4px;
+    color: var(--tanem-blue);
+    animation: tanemArrowDown 1.45s ease-in-out infinite;
   }
 
   .hero-preview {
     position: relative;
-    width: calc(100% + 74px);
+    width: calc(100% + 82px);
     min-height: 0;
-    margin: -4px -37px 0;
+    margin: -10px -41px 0;
     display: grid;
     place-items: center;
     overflow: visible;
@@ -226,10 +238,10 @@
 
   .hero-preview img {
     position: relative;
-    width: 118%;
+    width: 120%;
     max-width: none;
     height: 100%;
-    max-height: min(372px, 40svh);
+    max-height: min(382px, 41svh);
     object-fit: contain;
     filter: none !important;
     opacity: 1 !important;
@@ -242,18 +254,18 @@
   }
 
   .hero-mobile-note {
-    width: min(68%, 250px);
+    width: min(56%, 220px);
     margin: 0 auto clamp(8px, 1.15svh, 11px);
-    padding: 8px 10px 9px;
+    padding: 9px 10px 10px;
     border: 1px solid rgba(74,62,80,.14);
-    border-radius: 12px;
-    background: rgba(255,255,255,.40);
+    border-radius: 13px;
+    background: rgba(255,255,255,.42);
     color: #625b65;
     text-align: center;
     font-size: 0;
     line-height: 1.3;
     font-weight: 430;
-    box-shadow: inset 0 1px rgba(255,255,255,.58);
+    box-shadow: inset 0 1px rgba(255,255,255,.60);
     backdrop-filter: blur(8px);
   }
 
@@ -271,7 +283,7 @@
     display: block;
     margin-top: 4px;
     color: #211d24;
-    font-size: 12px;
+    font-size: 11.5px;
     font-weight: 690;
     letter-spacing: -.014em;
   }
@@ -283,41 +295,49 @@
 
   .hero-mobile-cta {
     position: relative;
+    overflow: hidden;
     min-height: 54px;
     height: 54px;
     margin: 0;
     padding: 0 46px;
-    border: 1px solid rgba(255,255,255,.28);
+    border: 1px solid rgba(255,255,255,.30);
     border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0;
-    background-image:
-      linear-gradient(110deg, transparent 34%, rgba(255,255,255,.24) 47%, transparent 60%),
-      linear-gradient(135deg, #5368b6 0%, #465aa3 52%, #3d4f96 100%);
-    background-size: 220% 100%, 100% 100%;
-    background-position: 180% 0, 0 0;
+    background: linear-gradient(135deg, #5a73cf 0%, var(--tanem-blue) 54%, var(--tanem-blue-dark) 100%);
     color: #fff;
     font-size: 13px;
-    font-weight: 620;
+    font-weight: 630;
     letter-spacing: -.01em;
     text-align: center;
-    box-shadow: 0 12px 30px rgba(62,75,145,.30), inset 0 1px rgba(255,255,255,.20);
-    animation: tanemCtaShine 4.2s ease-in-out infinite;
+    box-shadow: 0 13px 32px rgba(64,79,158,.34), inset 0 1px rgba(255,255,255,.22);
+  }
+
+  .hero-mobile-cta::before {
+    content: "";
+    position: absolute;
+    top: -18%;
+    bottom: -18%;
+    left: 0;
+    width: 30%;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.34), transparent);
+    transform: translateX(-220%) skewX(-18deg);
+    animation: tanemCtaDoubleShine 6s ease-in-out infinite;
   }
 
   .hero-mobile-cta:hover {
-    background-image:
-      linear-gradient(110deg, transparent 34%, rgba(255,255,255,.25) 47%, transparent 60%),
-      linear-gradient(135deg, #5b70bf 0%, #4c60aa 52%, #42559d 100%);
-    box-shadow: 0 14px 34px rgba(62,75,145,.35), inset 0 1px rgba(255,255,255,.22);
+    background: linear-gradient(135deg, #637bd3 0%, #4c64bd 54%, #3a4f9e 100%);
+    box-shadow: 0 15px 36px rgba(64,79,158,.40), inset 0 1px rgba(255,255,255,.24);
   }
 
   .hero-mobile-cta span {
     position: absolute;
     right: 18px;
     top: 50%;
+    z-index: 1;
     transform: translateY(-50%);
     font-size: 17px;
     line-height: 1;
@@ -329,6 +349,10 @@
 }
 
 @media (max-width: 380px) {
+  .intro-splash span {
+    font-size: 24px;
+  }
+
   .nav {
     flex-basis: 68px;
     min-height: 68px;
@@ -348,35 +372,39 @@
     padding-bottom: 9px;
   }
 
+  .hero-mobile .eyebrow {
+    margin-bottom: 9px;
+  }
+
   .hero-mobile h1 {
     font-size: 36px;
   }
 
   .hero-mobile-lead {
+    margin-top: 14px;
     font-size: 12px;
   }
 
   .hero-mobile-examples {
-    margin-top: 8px;
+    margin-top: 6px;
+    margin-bottom: -3px;
     font-size: 10px;
   }
 
   .hero-preview {
-    width: calc(100% + 58px);
-    margin-left: -29px;
-    margin-right: -29px;
+    width: calc(100% + 66px);
+    margin: -8px -33px 0;
   }
 
   .hero-preview img {
-    width: 115%;
-    max-height: min(305px, 36svh);
+    width: 117%;
+    max-height: min(315px, 37svh);
   }
 
   .hero-mobile-note {
-    width: min(70%, 238px);
+    width: min(58%, 210px);
     margin-bottom: 7px;
-    padding-top: 7px;
-    padding-bottom: 8px;
+    padding: 8px 8px 9px;
   }
 
   .hero-mobile-note::before {
@@ -384,7 +412,7 @@
   }
 
   .hero-mobile-note::after {
-    font-size: 11px;
+    font-size: 10.5px;
   }
 
   .hero-mobile-cta {
@@ -402,6 +430,10 @@
 }
 
 @media (max-height: 650px) and (max-width: 760px) {
+  .intro-splash span {
+    font-size: 23px;
+  }
+
   .nav {
     flex-basis: 64px;
     min-height: 64px;
@@ -418,7 +450,7 @@
   }
 
   .hero-mobile .eyebrow {
-    margin-bottom: 5px;
+    margin-bottom: 7px;
   }
 
   .hero-mobile h1 {
@@ -426,31 +458,31 @@
   }
 
   .hero-mobile-lead {
-    margin-top: 7px;
+    margin-top: 11px;
     font-size: 11px;
   }
 
   .hero-mobile-examples {
-    margin-top: 5px;
+    margin-top: 4px;
+    margin-bottom: -3px;
     padding: 5px 0 4px;
     font-size: 9px;
   }
 
   .hero-preview {
-    width: calc(100% + 50px);
-    margin-left: -25px;
-    margin-right: -25px;
+    width: calc(100% + 56px);
+    margin: -8px -28px 0;
   }
 
   .hero-preview img {
-    width: 112%;
-    max-height: min(245px, 32svh);
+    width: 114%;
+    max-height: min(252px, 33svh);
   }
 
   .hero-mobile-note {
-    width: min(64%, 230px);
+    width: min(55%, 205px);
     margin-bottom: 6px;
-    padding: 6px 9px 7px;
+    padding: 6px 8px 7px;
   }
 
   .hero-mobile-note::before {
@@ -459,7 +491,7 @@
 
   .hero-mobile-note::after {
     margin-top: 2px;
-    font-size: 10px;
+    font-size: 9.5px;
   }
 
   .hero-mobile-cta {
@@ -475,7 +507,7 @@
   }
 
   .hero-mobile-examples span,
-  .hero-mobile-cta {
+  .hero-mobile-cta::before {
     animation: none;
   }
 }
