@@ -8,7 +8,7 @@
   <meta name="description" content="TANEM создаёт персональные цифровые офисы для частных мастеров: работы, услуги, цены, отзывы, контакты и запись в одной ссылке." />
   <link rel="icon" href="./public/favicon.svg" />
   <link rel="stylesheet" href="./app/main-v3.css?v=20260821-1813" />
-  <link rel="stylesheet" href="./app/publish-polish.css?v=20260821-1846" />
+  <link rel="stylesheet" href="./app/publish-polish.css?v=20260822-0115" />
 </head>
 <body>
   <main>
@@ -25,24 +25,68 @@
         </div>
 
         <div class="showcase reveal d2">
-          <a class="examples-link" href="https://nonna.tanem.ru/" target="_blank" rel="noreferrer">
-            <span>Посмотреть пример цифрового офиса</span>
+          <a class="examples-link" href="#office-info">
+            <span>Шаблоны цифрового офиса для beauty-мастеров</span>
             <span class="examples-arrow" aria-hidden="true">↓</span>
           </a>
 
-          <div class="preview" aria-label="Пример цифрового офиса на ноутбуке и телефоне">
-            <img src="./office-preview.png" alt="Цифровой офис TANEM на ноутбуке и телефоне" />
+          <div class="template-stage" id="templateStage" aria-label="Два варианта цифрового офиса TANEM">
+            <img class="template-shot is-active" src="./%20mac-empty-1.png" alt="Светлый шаблон цифрового офиса TANEM" />
+            <img class="template-shot" src="./mac-empty-2.png" alt="Тёмный шаблон цифрового офиса TANEM" />
+          </div>
+
+          <div class="template-indicator" aria-hidden="true">
+            <span class="template-dot is-active"></span>
+            <span class="template-dot"></span>
           </div>
 
           <div class="benefit-strip" aria-label="Преимущества TANEM">
             <div class="benefit benefit-a"><span class="benefit-icon">∞</span><span>Бесплатно навсегда</span></div>
-            <div class="benefit benefit-b"><span class="benefit-icon">✓</span><span>Постоянная ссылка</span></div>
-            <div class="benefit benefit-c"><span class="benefit-icon">★</span><span>Отзывы и доверие</span></div>
+            <div class="benefit benefit-b"><span class="benefit-icon">✓</span><span>Без ограничений</span></div>
+            <div class="benefit benefit-c"><span class="benefit-icon">✦</span><span>Отзывы и доверие</span></div>
           </div>
         </div>
 
         <p class="hero-build reveal d4">Сайт собираем и запускаем сами</p>
         <a class="hero-cta reveal d4" href="#contact">Получить свой цифровой офис <span>→</span></a>
+      </div>
+    </section>
+
+    <section class="office-info" id="office-info">
+      <div class="site-width office-info-inner">
+        <div class="office-info-head info-reveal">
+          <p class="office-kicker">Что получает мастер</p>
+          <h2>Одна ссылка вместо<br/>нескольких сервисов</h2>
+          <p>Всё, что клиенту нужно увидеть перед записью, собрано в одном аккуратном персональном сайте.</p>
+        </div>
+
+        <div class="office-info-list">
+          <article class="info-row info-reveal">
+            <span class="info-number">01</span>
+            <div>
+              <strong>Базовый офис — бесплатно</strong>
+              <p>Без ежемесячной оплаты и ограничения по сроку использования.</p>
+            </div>
+          </article>
+          <article class="info-row info-reveal">
+            <span class="info-number">02</span>
+            <div>
+              <strong>Запускаем всё сами</strong>
+              <p>Собираем работы, услуги, цены, отзывы, контакты и способы записи.</p>
+            </div>
+          </article>
+          <article class="info-row info-reveal">
+            <span class="info-number">03</span>
+            <div>
+              <strong>Одна постоянная ссылка</strong>
+              <p>Её можно поставить в Яндекс Карты, отправлять клиентам и использовать в мессенджерах.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="office-flow info-reveal" aria-label="Как запускается цифровой офис">
+          <span>Вы присылаете профиль</span><i>→</i><span>Мы собираем сайт</span><i>→</i><span>Вы получаете готовую ссылку</span>
+        </div>
       </div>
     </section>
 
@@ -78,6 +122,12 @@
             <button class="submit-btn" type="submit">Оставить заявку</button>
           </form>
         </div>
+
+        <div class="contact-notes contact-reveal" aria-label="Что входит в запуск">
+          <span>Базовая версия бесплатно</span>
+          <span>Поможем с размещением ссылки</span>
+          <span>Связь напрямую с TANEM</span>
+        </div>
       </div>
 
       <footer class="site-width footer-line">
@@ -88,8 +138,21 @@
   </main>
 
   <script>
-    const form = document.getElementById('requestForm');
+    const templateShots = [...document.querySelectorAll('.template-shot')];
+    const templateDots = [...document.querySelectorAll('.template-dot')];
+    let activeTemplate = 0;
 
+    const setTemplate = (nextIndex) => {
+      templateShots.forEach((shot, index) => shot.classList.toggle('is-active', index === nextIndex));
+      templateDots.forEach((dot, index) => dot.classList.toggle('is-active', index === nextIndex));
+      activeTemplate = nextIndex;
+    };
+
+    if (templateShots.length > 1) {
+      setInterval(() => setTemplate((activeTemplate + 1) % templateShots.length), 4600);
+    }
+
+    const form = document.getElementById('requestForm');
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       const name = document.getElementById('name').value.trim();
@@ -99,13 +162,13 @@
       window.location.href = `https://t.me/tanem_ru?text=${encodeURIComponent(text)}`;
     });
 
-    const contactItems = document.querySelectorAll('.contact-reveal');
+    const revealItems = document.querySelectorAll('.contact-reveal, .info-reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) entry.target.classList.add('in-view');
       });
-    }, { threshold: 0.16 });
-    contactItems.forEach((item) => observer.observe(item));
+    }, { threshold: 0.14 });
+    revealItems.forEach((item) => observer.observe(item));
   </script>
 </body>
 </html>
