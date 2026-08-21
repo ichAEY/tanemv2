@@ -8,6 +8,7 @@
   <meta name="description" content="TANEM создаёт персональные цифровые офисы для частных мастеров: работы, услуги, цены, отзывы, контакты и запись в одной ссылке." />
   <link rel="icon" href="./public/favicon.svg" />
   <link rel="stylesheet" href="./app/main-v3.css?v=20260821-1813" />
+  <link rel="stylesheet" href="./app/publish-polish.css?v=20260821-1822" />
 </head>
 <body>
   <main>
@@ -24,21 +25,26 @@
         </div>
 
         <a class="examples-link reveal d2" href="https://nonna.tanem.ru/" target="_blank" rel="noreferrer">
-          <span>Посмотреть пример</span><span class="examples-arrow">↓</span>
+          <span>Посмотреть пример цифрового офиса</span>
         </a>
 
         <div class="preview reveal d2" aria-label="Пример цифрового офиса на ноутбуке и телефоне">
-          <div class="preview-glow"></div>
           <img src="./office-preview.png" alt="Цифровой офис TANEM на ноутбуке и телефоне" />
-          <div class="preview-dots" aria-hidden="true"><i class="active"></i><i></i><i></i></div>
         </div>
 
-        <p class="hero-desc reveal d3">Работы, цены, отзывы и запись — в одной ссылке, которую удобно отправить клиенту.</p>
-
         <div class="benefit-strip reveal d3" aria-label="Преимущества TANEM">
-          <div class="benefit"><span class="benefit-icon">∞</span><span>Бесплатно навсегда</span></div>
-          <div class="benefit"><span class="benefit-icon">✓</span><span>Доступ без ограничений</span></div>
-          <div class="benefit"><span class="benefit-icon">★</span><span>Больше доверия</span></div>
+          <div class="benefit">
+            <span class="benefit-icon">∞</span>
+            <span class="benefit-copy"><strong>Бесплатно навсегда.</strong> <small>Базовый цифровой офис остаётся бесплатным без ежемесячной оплаты.</small></span>
+          </div>
+          <div class="benefit">
+            <span class="benefit-icon">✓</span>
+            <span class="benefit-copy"><strong>Доступ без ограничений.</strong> <small>Одна постоянная ссылка, которая остаётся у вас и доступна клиентам.</small></span>
+          </div>
+          <div class="benefit">
+            <span class="benefit-icon">★</span>
+            <span class="benefit-copy"><strong>Всё для доверия.</strong> <small>Работы, цены, отзывы и запись собраны в одном понятном месте.</small></span>
+          </div>
         </div>
 
         <p class="hero-build reveal d4">Соберём и запустим сайт за вас</p>
@@ -107,14 +113,6 @@
       });
     }, { threshold: 0.18 });
     contactItems.forEach((item) => observer.observe(item));
-
-    const dots = [...document.querySelectorAll('.preview-dots i')];
-    let dotIndex = 0;
-    setInterval(() => {
-      dots[dotIndex].classList.remove('active');
-      dotIndex = (dotIndex + 1) % dots.length;
-      dots[dotIndex].classList.add('active');
-    }, 3200);
   </script>
 </body>
 </html>
