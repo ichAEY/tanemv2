@@ -9,6 +9,7 @@
   <link rel="icon" href="./public/favicon.svg" />
   <link rel="stylesheet" href="./app/main-v3.css?v=20260821-1813" />
   <link rel="stylesheet" href="./app/publish-polish.css?v=20260822-0138" />
+  <link rel="stylesheet" href="./app/mobile-final.css?v=20260822-0147" />
 </head>
 <body>
   <main>
@@ -60,37 +61,37 @@
       <div class="site-width office-info-inner">
         <div class="office-info-head info-reveal">
           <p class="office-kicker">Что получает мастер:</p>
-          <h2>Всё, что помогает<br/>клиенту записаться</h2>
-          <p>Работы, актуальные цены, отзывы и способ записи собраны в одном персональном сайте — без лишних переходов и поиска информации.</p>
+          <h2>Готовый сайт,<br/>который работает на вас</h2>
+          <p>Не конструктор и не ещё один личный кабинет. Вы получаете готовый цифровой офис, постоянную ссылку и помощь с запуском.</p>
         </div>
 
-        <div class="office-value-grid">
-          <article class="value-card info-reveal">
+        <div class="office-value-grid" aria-label="Что входит в цифровой офис">
+          <article class="value-card value-wave-1 info-reveal">
             <span class="value-icon">01</span>
-            <strong>Всё в одном месте</strong>
-            <p>Портфолио, услуги, цены, отзывы и контакты доступны клиенту по одной ссылке.</p>
+            <div>
+              <strong>Базовая версия — бесплатно</strong>
+              <p>Без ежемесячной оплаты и ограничения по сроку использования.</p>
+            </div>
           </article>
-          <article class="value-card info-reveal">
-            <span class="value-icon">∞</span>
-            <strong>Базовая версия бесплатно</strong>
-            <p>Без ежемесячной оплаты и ограничения по сроку использования.</p>
+          <article class="value-card value-wave-2 info-reveal">
+            <span class="value-icon">02</span>
+            <div>
+              <strong>Поможем разместить сайт</strong>
+              <p>Подскажем, как добавить ссылку в Яндекс Карты и использовать её в привычных каналах.</p>
+            </div>
           </article>
-          <article class="value-card info-reveal">
-            <span class="value-icon">↗</span>
-            <strong>Постоянная ссылка</strong>
-            <p>Добавьте её в Яндекс Карты, мессенджеры или отправляйте клиентам напрямую.</p>
+          <article class="value-card value-wave-3 info-reveal">
+            <span class="value-icon">03</span>
+            <div>
+              <strong>Прямая связь с TANEM</strong>
+              <p>Без посредников, сложных кабинетов и лишних сервисов между вами и нашей командой.</p>
+            </div>
           </article>
         </div>
 
-        <div class="office-process info-reveal" aria-label="Как запускается цифровой офис">
-          <p class="process-title">Как проходит запуск</p>
-          <div class="process-steps">
-            <div class="process-step"><span>1</span><strong>Отправляете ссылку на Яндекс Карты</strong></div>
-            <i>→</i>
-            <div class="process-step"><span>2</span><strong>TANEM собирает и оформляет ваш офис</strong></div>
-            <i>→</i>
-            <div class="process-step"><span>3</span><strong>Получаете готовую ссылку для клиентов</strong></div>
-          </div>
+        <div class="office-mini-note info-reveal">
+          <span class="mini-mark">T</span>
+          <p><strong>Всё в одной ссылке.</strong> Работы, цены, отзывы, контакты и запись — в понятном формате для клиента.</p>
         </div>
       </div>
     </section>
@@ -106,10 +107,28 @@
           <a class="contact-direct" href="https://t.me/tanem_ru" target="_blank" rel="noreferrer">Написать в Telegram <span>↗</span></a>
         </div>
 
+        <div class="contact-process contact-reveal" aria-label="Как проходит запуск">
+          <p class="process-title">Как проходит запуск</p>
+          <div class="process-steps">
+            <div class="process-step">
+              <span>01</span>
+              <div><strong>Присылаете ссылку на Яндекс Карты</strong><small>Этого достаточно, чтобы начать.</small></div>
+            </div>
+            <div class="process-step">
+              <span>02</span>
+              <div><strong>Мы собираем и оформляем цифровой офис</strong><small>Структура, материалы и мобильная версия — на нас.</small></div>
+            </div>
+            <div class="process-step">
+              <span>03</span>
+              <div><strong>Получаете готовую ссылку для клиентов</strong><small>Её можно сразу использовать и размещать в своих каналах.</small></div>
+            </div>
+          </div>
+        </div>
+
         <div class="request-card contact-reveal">
           <div class="request-head">
             <h3>Оставить заявку</h3>
-            <p>Три поля — и мы сможем посмотреть вашу карточку и связаться с вами.</p>
+            <p>Имя, контакт и ссылка на Яндекс Карты — этого достаточно.</p>
           </div>
 
           <form class="request-form" id="requestForm">
@@ -126,12 +145,6 @@
             </label>
             <button class="submit-btn" type="submit">Оставить заявку</button>
           </form>
-        </div>
-
-        <div class="contact-notes contact-reveal" aria-label="Что входит в запуск">
-          <div><span class="note-mark">✓</span><span><strong>Базовая версия бесплатно</strong><small>Без ежемесячной оплаты</small></span></div>
-          <div><span class="note-mark">↗</span><span><strong>Поможем с размещением</strong><small>Подскажем, как добавить ссылку в Яндекс Карты</small></span></div>
-          <div><span class="note-mark">T</span><span><strong>Прямая связь с TANEM</strong><small>Без посредников и сложных кабинетов</small></span></div>
         </div>
       </div>
 
@@ -158,7 +171,7 @@
     const startTemplateRotation = () => {
       if (templateShots.length < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       clearInterval(templateTimer);
-      templateTimer = setInterval(() => setTemplate((activeTemplate + 1) % templateShots.length), 6200);
+      templateTimer = setInterval(() => setTemplate((activeTemplate + 1) % templateShots.length), 7600);
     };
 
     templateDots.forEach((dot, index) => {
