@@ -7,7 +7,7 @@
   <title>TANEM — цифровой офис для частного мастера</title>
   <meta name="description" content="TANEM создаёт персональные цифровые офисы для частных мастеров: работы, услуги, цены, отзывы, контакты и запись в одной ссылке." />
   <link rel="icon" href="./public/favicon.svg" />
-  <link rel="stylesheet" href="./app/main-v3.css?v=20260821-1753" />
+  <link rel="stylesheet" href="./app/main-v3.css?v=20260821-1813" />
 </head>
 <body>
   <main>
@@ -18,42 +18,50 @@
       </nav>
 
       <div class="hero-shell site-width">
-        <p class="eyebrow reveal d1">Персональный сайт для частного мастера</p>
-        <h1 class="reveal d1">Цифровой офис<br/>мастера</h1>
+        <div class="hero-title-wrap reveal d1">
+          <p class="eyebrow">Персональный сайт для частного мастера</p>
+          <h1>Цифровой офис<br/>мастера</h1>
+        </div>
 
         <a class="examples-link reveal d2" href="https://nonna.tanem.ru/" target="_blank" rel="noreferrer">
-          <span>Посмотреть пример цифрового офиса</span><span>↓</span>
+          <span>Посмотреть пример</span><span class="examples-arrow">↓</span>
         </a>
 
         <div class="preview reveal d2" aria-label="Пример цифрового офиса на ноутбуке и телефоне">
+          <div class="preview-glow"></div>
           <img src="./office-preview.png" alt="Цифровой офис TANEM на ноутбуке и телефоне" />
+          <div class="preview-dots" aria-hidden="true"><i class="active"></i><i></i><i></i></div>
         </div>
 
-        <p class="hero-desc reveal d3">Портфолио, услуги, цены, отзывы и запись — в одном понятном сайте.</p>
+        <p class="hero-desc reveal d3">Работы, цены, отзывы и запись — в одной ссылке, которую удобно отправить клиенту.</p>
 
         <div class="benefit-strip reveal d3" aria-label="Преимущества TANEM">
           <div class="benefit"><span class="benefit-icon">∞</span><span>Бесплатно навсегда</span></div>
-          <div class="benefit"><span class="benefit-icon">◉</span><span>Без блокировок</span></div>
-          <div class="benefit"><span class="benefit-icon">☆</span><span>Отзывы на сайте</span></div>
+          <div class="benefit"><span class="benefit-icon">✓</span><span>Доступ без ограничений</span></div>
+          <div class="benefit"><span class="benefit-icon">★</span><span>Больше доверия</span></div>
         </div>
 
-        <p class="hero-build reveal d4">Сайт собираем и запускаем сами</p>
-        <a class="hero-cta reveal d4" href="#contact">Получить свой офис уже сегодня <span>→</span></a>
+        <p class="hero-build reveal d4">Соберём и запустим сайт за вас</p>
+        <a class="hero-cta reveal d4" href="#contact">Получить цифровой офис бесплатно <span>→</span></a>
       </div>
     </section>
 
     <section class="contact" id="contact">
+      <div class="contact-orb contact-orb-a"></div>
+      <div class="contact-orb contact-orb-b"></div>
       <div class="site-width contact-grid">
-        <div class="contact-copy">
+        <div class="contact-copy contact-reveal">
           <p class="contact-kicker">Связаться с TANEM</p>
           <h2>Хотите свой<br/>цифровой офис?</h2>
-          <p>Оставьте имя, ссылку на вашу страницу и контакт. Мы посмотрим материалы и напишем вам.</p>
+          <p>Оставьте имя, контакт и ссылку на вашу страницу. Telegram откроется с уже заполненной заявкой — переписывать ничего не придётся.</p>
           <a class="contact-direct" href="https://t.me/tanem_ru" target="_blank" rel="noreferrer">Или сразу написать в Telegram ↗</a>
         </div>
 
-        <div class="request-card">
-          <h3>Подать заявку</h3>
-          <p>Три поля — и можно переходить в Telegram.</p>
+        <div class="request-card contact-reveal">
+          <div class="request-head">
+            <span class="request-number">01</span>
+            <div><h3>Получить цифровой офис</h3><p>Три коротких поля. Дальше — готовое сообщение в Telegram.</p></div>
+          </div>
           <form class="request-form" id="requestForm">
             <div class="form-row">
               <label>Ваше имя
@@ -64,10 +72,9 @@
               </label>
             </div>
             <label>Ссылка на вас
-              <input id="profile" name="profile" type="url" inputmode="url" placeholder="Яндекс Карты, VK, Instagram*" required />
+              <input id="profile" name="profile" type="url" inputmode="url" placeholder="Яндекс Карты, VK или другая страница" required />
             </label>
-            <button class="submit-btn" type="submit">Отправить заявку</button>
-            <p class="form-status" id="formStatus" aria-live="polite"></p>
+            <button class="submit-btn" type="submit">Продолжить в Telegram</button>
           </form>
         </div>
       </div>
@@ -82,26 +89,32 @@
 
   <script>
     const form = document.getElementById('requestForm');
-    const status = document.getElementById('formStatus');
 
-    form.addEventListener('submit', async (event) => {
+    form.addEventListener('submit', (event) => {
       event.preventDefault();
       const name = document.getElementById('name').value.trim();
       const contact = document.getElementById('contactField').value.trim();
       const profile = document.getElementById('profile').value.trim();
-      const text = `Заявка с tanem.ru\nИмя: ${name}\nКонтакт: ${contact}\nСсылка: ${profile}`;
-
-      try {
-        await navigator.clipboard.writeText(text);
-        status.textContent = 'Заявка скопирована. Открываем Telegram — останется вставить сообщение.';
-      } catch (e) {
-        status.textContent = 'Открываем Telegram. Данные останутся в форме.';
-      }
-
-      setTimeout(() => {
-        window.open('https://t.me/tanem_ru', '_blank', 'noopener,noreferrer');
-      }, 350);
+      const text = `Здравствуйте! Хочу цифровой офис TANEM.\n\nИмя: ${name}\nКонтакт: ${contact}\nСсылка: ${profile}`;
+      const telegramUrl = `https://t.me/tanem_ru?text=${encodeURIComponent(text)}`;
+      window.location.href = telegramUrl;
     });
+
+    const contactItems = document.querySelectorAll('.contact-reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('in-view');
+      });
+    }, { threshold: 0.18 });
+    contactItems.forEach((item) => observer.observe(item));
+
+    const dots = [...document.querySelectorAll('.preview-dots i')];
+    let dotIndex = 0;
+    setInterval(() => {
+      dots[dotIndex].classList.remove('active');
+      dotIndex = (dotIndex + 1) % dots.length;
+      dots[dotIndex].classList.add('active');
+    }, 3200);
   </script>
 </body>
 </html>
