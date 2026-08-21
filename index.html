@@ -8,7 +8,7 @@
   <meta name="description" content="TANEM создаёт персональные цифровые офисы для частных мастеров: работы, услуги, цены, отзывы, контакты и запись в одной ссылке." />
   <link rel="icon" href="./public/favicon.svg" />
   <link rel="stylesheet" href="./app/main-v3.css?v=20260821-1813" />
-  <link rel="stylesheet" href="./app/publish-polish.css?v=20260822-0115" />
+  <link rel="stylesheet" href="./app/publish-polish.css?v=20260822-0138" />
 </head>
 <body>
   <main>
@@ -26,18 +26,22 @@
 
         <div class="showcase reveal d2">
           <a class="examples-link" href="#office-info">
-            <span>Шаблоны цифрового офиса для beauty-мастеров</span>
+            <span>Шаблоны офиса для beauty-мастеров</span>
             <span class="examples-arrow" aria-hidden="true">↓</span>
           </a>
 
-          <div class="template-stage" id="templateStage" aria-label="Два варианта цифрового офиса TANEM">
+          <div class="preview desktop-preview" aria-label="Пример цифрового офиса на ноутбуке и телефоне">
+            <img src="./office-preview.png" alt="Цифровой офис TANEM на ноутбуке и телефоне" />
+          </div>
+
+          <div class="template-stage" id="templateStage" aria-label="Светлый и тёмный варианты цифрового офиса TANEM">
             <img class="template-shot is-active" src="./%20mac-empty-1.png" alt="Светлый шаблон цифрового офиса TANEM" />
             <img class="template-shot" src="./mac-empty-2.png" alt="Тёмный шаблон цифрового офиса TANEM" />
           </div>
 
-          <div class="template-indicator" aria-hidden="true">
-            <span class="template-dot is-active"></span>
-            <span class="template-dot"></span>
+          <div class="template-indicator" aria-label="Переключить шаблон">
+            <button class="template-dot is-active" type="button" aria-label="Светлый шаблон"></button>
+            <button class="template-dot" type="button" aria-label="Тёмный шаблон"></button>
           </div>
 
           <div class="benefit-strip" aria-label="Преимущества TANEM">
@@ -55,37 +59,38 @@
     <section class="office-info" id="office-info">
       <div class="site-width office-info-inner">
         <div class="office-info-head info-reveal">
-          <p class="office-kicker">Что получает мастер</p>
-          <h2>Одна ссылка вместо<br/>нескольких сервисов</h2>
-          <p>Всё, что клиенту нужно увидеть перед записью, собрано в одном аккуратном персональном сайте.</p>
+          <p class="office-kicker">Что получает мастер:</p>
+          <h2>Всё, что помогает<br/>клиенту записаться</h2>
+          <p>Работы, актуальные цены, отзывы и способ записи собраны в одном персональном сайте — без лишних переходов и поиска информации.</p>
         </div>
 
-        <div class="office-info-list">
-          <article class="info-row info-reveal">
-            <span class="info-number">01</span>
-            <div>
-              <strong>Базовый офис — бесплатно</strong>
-              <p>Без ежемесячной оплаты и ограничения по сроку использования.</p>
-            </div>
+        <div class="office-value-grid">
+          <article class="value-card info-reveal">
+            <span class="value-icon">01</span>
+            <strong>Всё в одном месте</strong>
+            <p>Портфолио, услуги, цены, отзывы и контакты доступны клиенту по одной ссылке.</p>
           </article>
-          <article class="info-row info-reveal">
-            <span class="info-number">02</span>
-            <div>
-              <strong>Запускаем всё сами</strong>
-              <p>Собираем работы, услуги, цены, отзывы, контакты и способы записи.</p>
-            </div>
+          <article class="value-card info-reveal">
+            <span class="value-icon">∞</span>
+            <strong>Базовая версия бесплатно</strong>
+            <p>Без ежемесячной оплаты и ограничения по сроку использования.</p>
           </article>
-          <article class="info-row info-reveal">
-            <span class="info-number">03</span>
-            <div>
-              <strong>Одна постоянная ссылка</strong>
-              <p>Её можно поставить в Яндекс Карты, отправлять клиентам и использовать в мессенджерах.</p>
-            </div>
+          <article class="value-card info-reveal">
+            <span class="value-icon">↗</span>
+            <strong>Постоянная ссылка</strong>
+            <p>Добавьте её в Яндекс Карты, мессенджеры или отправляйте клиентам напрямую.</p>
           </article>
         </div>
 
-        <div class="office-flow info-reveal" aria-label="Как запускается цифровой офис">
-          <span>Вы присылаете профиль</span><i>→</i><span>Мы собираем сайт</span><i>→</i><span>Вы получаете готовую ссылку</span>
+        <div class="office-process info-reveal" aria-label="Как запускается цифровой офис">
+          <p class="process-title">Как проходит запуск</p>
+          <div class="process-steps">
+            <div class="process-step"><span>1</span><strong>Отправляете ссылку на Яндекс Карты</strong></div>
+            <i>→</i>
+            <div class="process-step"><span>2</span><strong>TANEM собирает и оформляет ваш офис</strong></div>
+            <i>→</i>
+            <div class="process-step"><span>3</span><strong>Получаете готовую ссылку для клиентов</strong></div>
+          </div>
         </div>
       </div>
     </section>
@@ -97,14 +102,14 @@
       <div class="site-width contact-grid">
         <div class="contact-copy contact-reveal">
           <p class="contact-kicker">Связаться с TANEM</p>
-          <h2>Хотите свой<br/>цифровой офис?</h2>
+          <h2>Получите свой<br/>цифровой офис</h2>
           <a class="contact-direct" href="https://t.me/tanem_ru" target="_blank" rel="noreferrer">Написать в Telegram <span>↗</span></a>
         </div>
 
         <div class="request-card contact-reveal">
           <div class="request-head">
             <h3>Оставить заявку</h3>
-            <p>Имя, контакт и ссылка — этого достаточно.</p>
+            <p>Три поля — и мы сможем посмотреть вашу карточку и связаться с вами.</p>
           </div>
 
           <form class="request-form" id="requestForm">
@@ -116,23 +121,24 @@
                 <input id="contactField" name="contact" type="text" autocomplete="tel" placeholder="Telegram или телефон" required />
               </label>
             </div>
-            <label>Ссылка на вас
-              <input id="profile" name="profile" type="url" inputmode="url" placeholder="Яндекс Карты, VK или другая страница" required />
+            <label>Ссылка на Яндекс Карты
+              <input id="profile" name="profile" type="url" inputmode="url" placeholder="https://yandex.ru/maps/..." required />
             </label>
             <button class="submit-btn" type="submit">Оставить заявку</button>
           </form>
         </div>
 
         <div class="contact-notes contact-reveal" aria-label="Что входит в запуск">
-          <span>Базовая версия бесплатно</span>
-          <span>Поможем с размещением ссылки</span>
-          <span>Связь напрямую с TANEM</span>
+          <div><span class="note-mark">✓</span><span><strong>Базовая версия бесплатно</strong><small>Без ежемесячной оплаты</small></span></div>
+          <div><span class="note-mark">↗</span><span><strong>Поможем с размещением</strong><small>Подскажем, как добавить ссылку в Яндекс Карты</small></span></div>
+          <div><span class="note-mark">T</span><span><strong>Прямая связь с TANEM</strong><small>Без посредников и сложных кабинетов</small></span></div>
         </div>
       </div>
 
       <footer class="site-width footer-line">
         <span class="footer-brand">TANEM</span>
-        <span class="footer-meta">Цифровой офис для частных мастеров · 2026</span>
+        <span class="footer-tagline">Цифровой офис для частных мастеров</span>
+        <span class="footer-meta">© 2026 TANEM · tanem.ru · Все права защищены</span>
       </footer>
     </section>
   </main>
@@ -141,6 +147,7 @@
     const templateShots = [...document.querySelectorAll('.template-shot')];
     const templateDots = [...document.querySelectorAll('.template-dot')];
     let activeTemplate = 0;
+    let templateTimer = null;
 
     const setTemplate = (nextIndex) => {
       templateShots.forEach((shot, index) => shot.classList.toggle('is-active', index === nextIndex));
@@ -148,9 +155,19 @@
       activeTemplate = nextIndex;
     };
 
-    if (templateShots.length > 1) {
-      setInterval(() => setTemplate((activeTemplate + 1) % templateShots.length), 4600);
-    }
+    const startTemplateRotation = () => {
+      if (templateShots.length < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      clearInterval(templateTimer);
+      templateTimer = setInterval(() => setTemplate((activeTemplate + 1) % templateShots.length), 6200);
+    };
+
+    templateDots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        setTemplate(index);
+        startTemplateRotation();
+      });
+    });
+    startTemplateRotation();
 
     const form = document.getElementById('requestForm');
     form.addEventListener('submit', (event) => {
@@ -158,7 +175,7 @@
       const name = document.getElementById('name').value.trim();
       const contact = document.getElementById('contactField').value.trim();
       const profile = document.getElementById('profile').value.trim();
-      const text = `Здравствуйте! Хочу цифровой офис TANEM.\n\nИмя: ${name}\nКонтакт: ${contact}\nСсылка: ${profile}`;
+      const text = `Здравствуйте! Хочу цифровой офис TANEM.\n\nИмя: ${name}\nКонтакт: ${contact}\nЯндекс Карты: ${profile}`;
       window.location.href = `https://t.me/tanem_ru?text=${encodeURIComponent(text)}`;
     });
 
@@ -167,7 +184,7 @@
       entries.forEach((entry) => {
         if (entry.isIntersecting) entry.target.classList.add('in-view');
       });
-    }, { threshold: 0.14 });
+    }, { threshold: 0.12 });
     revealItems.forEach((item) => observer.observe(item));
   </script>
 </body>
