@@ -7,8 +7,11 @@
   <title>TANEM — цифровой офис для частного мастера</title>
   <meta name="description" content="TANEM создаёт персональные цифровые офисы для частных мастеров: работы, услуги, цены, отзывы, контакты и запись в одной ссылке." />
   <link rel="icon" href="./public/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./app/main-v3.css?v=20260821-1813" />
-  <link rel="stylesheet" href="./app/publish-polish.css?v=20260821-1822" />
+  <link rel="stylesheet" href="./app/publish-polish.css?v=20260821-1837" />
 </head>
 <body>
   <main>
@@ -26,25 +29,17 @@
 
         <a class="examples-link reveal d2" href="https://nonna.tanem.ru/" target="_blank" rel="noreferrer">
           <span>Посмотреть пример цифрового офиса</span>
+          <span class="examples-arrow" aria-hidden="true">↓</span>
         </a>
 
         <div class="preview reveal d2" aria-label="Пример цифрового офиса на ноутбуке и телефоне">
           <img src="./office-preview.png" alt="Цифровой офис TANEM на ноутбуке и телефоне" />
         </div>
 
-        <div class="benefit-strip reveal d3" aria-label="Преимущества TANEM">
-          <div class="benefit">
-            <span class="benefit-icon">∞</span>
-            <span class="benefit-copy"><strong>Бесплатно навсегда.</strong> <small>Базовый цифровой офис остаётся бесплатным без ежемесячной оплаты.</small></span>
-          </div>
-          <div class="benefit">
-            <span class="benefit-icon">✓</span>
-            <span class="benefit-copy"><strong>Доступ без ограничений.</strong> <small>Одна постоянная ссылка, которая остаётся у вас и доступна клиентам.</small></span>
-          </div>
-          <div class="benefit">
-            <span class="benefit-icon">★</span>
-            <span class="benefit-copy"><strong>Всё для доверия.</strong> <small>Работы, цены, отзывы и запись собраны в одном понятном месте.</small></span>
-          </div>
+        <div class="benefit-strip" aria-label="Преимущества TANEM">
+          <div class="benefit benefit-a"><span class="benefit-icon">∞</span><span>Бесплатно навсегда</span></div>
+          <div class="benefit benefit-b"><span class="benefit-icon">✓</span><span>Без ограничений</span></div>
+          <div class="benefit benefit-c"><span class="benefit-icon">✦</span><span>Всё для доверия</span></div>
         </div>
 
         <p class="hero-build reveal d4">Соберём и запустим сайт за вас</p>
@@ -55,19 +50,22 @@
     <section class="contact" id="contact">
       <div class="contact-orb contact-orb-a"></div>
       <div class="contact-orb contact-orb-b"></div>
+
       <div class="site-width contact-grid">
         <div class="contact-copy contact-reveal">
           <p class="contact-kicker">Связаться с TANEM</p>
           <h2>Хотите свой<br/>цифровой офис?</h2>
-          <p>Оставьте имя, контакт и ссылку на вашу страницу. Telegram откроется с уже заполненной заявкой — переписывать ничего не придётся.</p>
-          <a class="contact-direct" href="https://t.me/tanem_ru" target="_blank" rel="noreferrer">Или сразу написать в Telegram ↗</a>
+          <a class="contact-direct" href="https://t.me/tanem_ru" target="_blank" rel="noreferrer">Написать в Telegram ↗</a>
         </div>
 
         <div class="request-card contact-reveal">
           <div class="request-head">
-            <span class="request-number">01</span>
-            <div><h3>Получить цифровой офис</h3><p>Три коротких поля. Дальше — готовое сообщение в Telegram.</p></div>
+            <div>
+              <h3>Получить цифровой офис</h3>
+              <p>Оставьте контакты — и мы свяжемся с вами.</p>
+            </div>
           </div>
+
           <form class="request-form" id="requestForm">
             <div class="form-row">
               <label>Ваше имя
@@ -80,16 +78,15 @@
             <label>Ссылка на вас
               <input id="profile" name="profile" type="url" inputmode="url" placeholder="Яндекс Карты, VK или другая страница" required />
             </label>
-            <button class="submit-btn" type="submit">Продолжить в Telegram</button>
+            <button class="submit-btn" type="submit">Оставить заявку</button>
           </form>
         </div>
       </div>
 
-      <div class="site-width footer-line">
-        <span>TANEM</span>
-        <span>Цифровой офис для частных мастеров</span>
-        <span>2026</span>
-      </div>
+      <footer class="site-width footer-line">
+        <span class="footer-brand">TANEM</span>
+        <span class="footer-meta">Цифровой офис для частных мастеров · 2026</span>
+      </footer>
     </section>
   </main>
 
@@ -102,8 +99,7 @@
       const contact = document.getElementById('contactField').value.trim();
       const profile = document.getElementById('profile').value.trim();
       const text = `Здравствуйте! Хочу цифровой офис TANEM.\n\nИмя: ${name}\nКонтакт: ${contact}\nСсылка: ${profile}`;
-      const telegramUrl = `https://t.me/tanem_ru?text=${encodeURIComponent(text)}`;
-      window.location.href = telegramUrl;
+      window.location.href = `https://t.me/tanem_ru?text=${encodeURIComponent(text)}`;
     });
 
     const contactItems = document.querySelectorAll('.contact-reveal');
