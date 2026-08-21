@@ -1,77 +1,83 @@
 html,body{background:#0b0b0f}
 
-@media(max-width:760px){
-  /* Два самостоятельных экрана: hero и contact. */
-  .hero{height:100svh;min-height:100svh;max-height:100svh}
-  .contact{height:100svh;min-height:100svh;max-height:100svh;overflow:hidden;padding:54px 0 max(10px,env(safe-area-inset-bottom))}
+@keyframes benefitIn{0%{opacity:0;transform:translateY(10px) scale(.985)}100%{opacity:1;transform:none}}
+@keyframes arrowSoft{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
 
-  /* Больше воздуха между верхней линией и заголовком. */
+@media(max-width:760px){
+  .hero{height:100svh;min-height:100svh;max-height:100svh}
+  .contact{height:100svh;min-height:100svh;max-height:100svh;overflow:hidden;padding:54px 0 max(12px,env(safe-area-inset-bottom))}
+
+  .nav{min-height:63px!important}
   .hero-shell{padding-top:38px!important;padding-bottom:max(10px,env(safe-area-inset-bottom))!important}
   .hero-title-wrap{flex:0 0 auto}
-  .eyebrow{margin-bottom:12px!important}
-  .hero h1{font-size:clamp(42px,11.5vw,53px)!important;line-height:1.01!important;font-weight:290!important;letter-spacing:-.052em!important}
+  .eyebrow{margin-bottom:13px!important;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:8px!important;font-weight:500!important;letter-spacing:.16em!important}
+  .hero h1{font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:clamp(42px,11.1vw,52px)!important;line-height:1.02!important;font-weight:500!important;letter-spacing:-.045em!important}
 
-  /* Ссылка относится к макету, а не к заголовку. */
-  .examples-link{margin-top:34px!important;margin-bottom:-17px!important;font-size:10px!important;font-weight:520!important;opacity:.78;border-bottom-color:rgba(39,35,42,.20)!important}
-  .examples-arrow{display:none!important}
+  /* Ссылка максимально привязана к верхней границе самого макета. */
+  .examples-link{position:relative;z-index:4;margin-top:30px!important;margin-bottom:-34px!important;display:inline-flex!important;align-items:center!important;gap:6px!important;padding:0 0 3px!important;border-bottom:1px solid rgba(39,35,42,.20)!important;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:10.3px!important;font-weight:500!important;opacity:.82}
+  .examples-arrow{display:inline-block!important;color:#29242c!important;font-size:12px!important;line-height:1!important;animation:arrowSoft 1.35s ease-in-out infinite!important}
 
-  /* Макет крупный и полностью статичный. */
-  .preview{flex:1 1 auto;min-height:230px!important;width:calc(100% + 112px)!important;margin:0 -56px!important;padding:0!important}
-  .preview img{width:138%!important;max-width:none!important;max-height:min(425px,45svh)!important;animation:none!important;transform:none!important}
+  /* Ноутбук крупный и полностью статичный. */
+  .preview{flex:1 1 auto;min-height:236px!important;width:calc(100% + 136px)!important;margin:0 -68px!important;padding:0!important;display:grid!important;place-items:center!important}
+  .preview img{width:148%!important;max-width:none!important;max-height:min(445px,46svh)!important;animation:none!important;transform:none!important;filter:none!important}
   .preview-glow,.preview-dots{display:none!important}
-
-  /* Старое пояснение удалено из визуальной иерархии. */
   .hero-desc{display:none!important}
 
-  /* Три понятные строки вместо карточек/плашек. */
-  .benefit-strip{width:100%!important;display:block!important;margin:0 auto 11px!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;backdrop-filter:none!important}
-  .benefit{min-height:34px!important;display:grid!important;grid-template-columns:28px 1fr!important;align-items:center!important;justify-content:stretch!important;gap:9px!important;padding:6px 2px!important;border:0!important;border-top:1px solid rgba(46,39,50,.12)!important;font-size:11.4px!important;font-weight:500!important;letter-spacing:-.006em!important;white-space:normal!important;color:#443e47!important;text-align:left!important}
-  .benefit:last-child{border-bottom:1px solid rgba(46,39,50,.12)!important}
-  .benefit+.benefit{border-left:0!important}
-  .benefit-icon{width:22px!important;height:22px!important;display:grid!important;place-items:center!important;border-radius:50%!important;background:rgba(86,78,183,.08)!important;color:#5d55b8!important;font-size:13px!important;font-weight:650!important}
-  .benefit-copy{display:block;line-height:1.35}
-  .benefit-copy strong{font-weight:640;color:#2a262d}
-  .benefit-copy small{font-size:inherit;color:#69616b;font-weight:440}
+  /* Три коротких, тактильных пункта без тяжёлой таблицы. */
+  .benefit-strip{width:100%!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:7px!important;margin:-12px auto 15px!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;backdrop-filter:none!important}
+  .benefit{min-width:0!important;min-height:42px!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:6px!important;padding:8px 7px!important;border:1px solid rgba(54,46,59,.09)!important;border-radius:13px!important;background:rgba(255,255,255,.30)!important;box-shadow:inset 0 1px rgba(255,255,255,.55)!important;color:#332e37!important;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:9.2px!important;font-weight:500!important;line-height:1!important;letter-spacing:-.012em!important;white-space:nowrap!important;text-align:center!important;opacity:0;animation:benefitIn .52s cubic-bezier(.2,.72,.2,1) forwards}
+  .benefit+.benefit{border-left:1px solid rgba(54,46,59,.09)!important}
+  .benefit-a{animation-delay:.28s}.benefit-b{animation-delay:.38s}.benefit-c{animation-delay:.48s}
+  .benefit-icon{width:auto!important;height:auto!important;display:inline!important;border-radius:0!important;background:transparent!important;color:#6158b5!important;font-size:13px!important;font-weight:600!important;line-height:1!important}
+  .benefit-copy,.benefit-copy strong,.benefit-copy small{display:inline!important;font:inherit!important;color:inherit!important}
 
-  .hero-build{margin:0 0 8px!important;font-size:11px!important;font-weight:480!important;color:#554e58!important}
-  .hero-cta{min-height:54px!important;font-size:12.8px!important;font-weight:610!important}
+  .hero-build{margin:0 0 9px!important;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:11px!important;font-weight:500!important;color:#554e58!important}
+  .hero-cta{min-height:54px!important;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:12.8px!important;font-weight:600!important}
 
-  /* Второй экран компактный и завершённый внутри одного viewport. */
-  .contact-grid{height:auto;grid-template-columns:1fr!important;gap:22px!important}
-  .contact-kicker{margin-bottom:12px!important;font-size:9px!important}
-  .contact h2{font-size:40px!important;line-height:1!important;font-weight:300!important}
-  .contact-copy>p:last-of-type{margin-top:14px!important;font-size:12.5px!important;line-height:1.46!important;max-width:360px!important}
-  .contact-direct{margin-top:14px!important;font-size:11.5px!important}
-  .request-card{padding:14px!important;border-radius:18px!important}
-  .request-head{grid-template-columns:1fr!important;margin-bottom:12px!important}
+  /* Второй экран. */
+  .contact{display:flex!important;flex-direction:column!important}
+  .contact-grid{flex:1 1 auto!important;height:auto!important;grid-template-columns:1fr!important;gap:34px!important;align-content:start!important}
+  .contact-copy{padding-top:2px!important}
+  .contact-kicker{margin-bottom:13px!important;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:9px!important;font-weight:500!important}
+  .contact h2{font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:40px!important;line-height:1.02!important;font-weight:500!important;letter-spacing:-.045em!important}
+  .contact-copy>p:last-of-type{display:none!important}
+  .contact-direct{margin-top:17px!important;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:11.5px!important;font-weight:500!important}
+
+  .request-card{padding:18px!important;border:1px solid rgba(255,255,255,.10)!important;border-radius:20px!important;background:rgba(4,4,7,.74)!important;box-shadow:0 18px 52px rgba(0,0,0,.34)!important;backdrop-filter:blur(16px)!important}
+  .request-card:hover{transform:none!important;background:rgba(4,4,7,.78)!important}
+  .request-head{display:block!important;margin-bottom:15px!important}
   .request-number{display:none!important}
-  .request-card h3{font-size:18px!important;font-weight:520!important}
-  .request-card p{font-size:11px!important}
-  .request-form label{gap:5px!important;margin-bottom:7px!important;font-size:10px!important}
-  .request-form input{height:44px!important;font-size:16px!important}
-  .submit-btn{min-height:48px!important;margin-top:2px!important;font-size:12.5px!important}
-  .footer-line{margin-top:17px!important;padding-top:12px!important;padding-bottom:0!important;flex-direction:row!important;align-items:center!important;font-size:9px!important}
-  .footer-line span:nth-child(2){text-align:center}
-  .footer-line span:last-child{display:block!important}
+  .request-card h3{font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:19px!important;font-weight:500!important;letter-spacing:-.025em!important}
+  .request-card p{margin-top:6px!important;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:11px!important;font-weight:400!important;color:#8f8994!important}
+  .request-form label{gap:5px!important;margin-bottom:8px!important;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:10px!important;font-weight:400!important}
+  .request-form input{height:45px!important;font-size:16px!important;background:rgba(255,255,255,.045)!important}
+  .submit-btn{min-height:50px!important;margin-top:3px!important;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:12.6px!important;font-weight:600!important}
+  .submit-btn::after{top:50%!important;transform:translateY(-50%)!important;line-height:1!important}
+
+  .footer-line{margin-top:auto!important;padding-top:14px!important;padding-bottom:max(2px,env(safe-area-inset-bottom))!important;border-top:1px solid rgba(255,255,255,.10)!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-end!important;gap:5px!important;text-align:center!important}
+  .footer-brand{font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;color:#d8d3dc!important;font-size:11px!important;font-weight:500!important;letter-spacing:.20em!important}
+  .footer-meta{font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;color:#756f79!important;font-size:8.7px!important;font-weight:400!important}
 }
 
 @media(max-height:700px) and (max-width:760px){
-  .hero-shell{padding-top:28px!important}
+  .hero-shell{padding-top:29px!important}
   .hero h1{font-size:38px!important}
-  .examples-link{margin-top:25px!important;margin-bottom:-15px!important}
-  .preview{min-height:185px!important;width:calc(100% + 96px)!important;margin:0 -48px!important}
-  .preview img{width:132%!important;max-height:39svh!important}
-  .benefit{min-height:29px!important;padding:4px 2px!important;font-size:10px!important}
+  .examples-link{margin-top:24px!important;margin-bottom:-30px!important}
+  .preview{min-height:190px!important;width:calc(100% + 122px)!important;margin:0 -61px!important}
+  .preview img{width:143%!important;max-height:40svh!important}
+  .benefit-strip{margin-top:-10px!important;margin-bottom:10px!important;gap:5px!important}
+  .benefit{min-height:36px!important;padding:6px 4px!important;font-size:8.3px!important;border-radius:11px!important}
+  .benefit-icon{font-size:11px!important}
   .hero-build{font-size:10px!important;margin-bottom:6px!important}
   .hero-cta{min-height:49px!important;font-size:11.5px!important}
-  .contact{padding-top:36px!important}
-  .contact-grid{gap:14px!important}
+
+  .contact{padding-top:34px!important}
+  .contact-grid{gap:18px!important}
   .contact h2{font-size:34px!important}
-  .contact-copy>p:last-of-type{margin-top:10px!important;font-size:11.5px!important}
   .contact-direct{margin-top:10px!important}
-  .request-card{padding:11px!important}
-  .request-head{margin-bottom:8px!important}
+  .request-card{padding:13px!important}
+  .request-head{margin-bottom:9px!important}
   .request-form input{height:40px!important}
   .submit-btn{min-height:43px!important}
-  .footer-line{margin-top:10px!important;padding-top:8px!important}
+  .footer-line{padding-top:8px!important;gap:3px!important}
 }
