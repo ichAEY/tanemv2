@@ -7,11 +7,8 @@
   <title>TANEM — цифровой офис для частного мастера</title>
   <meta name="description" content="TANEM создаёт персональные цифровые офисы для частных мастеров: работы, услуги, цены, отзывы, контакты и запись в одной ссылке." />
   <link rel="icon" href="./public/favicon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./app/main-v3.css?v=20260821-1813" />
-  <link rel="stylesheet" href="./app/publish-polish.css?v=20260821-1837" />
+  <link rel="stylesheet" href="./app/publish-polish.css?v=20260821-1846" />
 </head>
 <body>
   <main>
@@ -27,23 +24,25 @@
           <h1>Цифровой офис<br/>мастера</h1>
         </div>
 
-        <a class="examples-link reveal d2" href="https://nonna.tanem.ru/" target="_blank" rel="noreferrer">
-          <span>Посмотреть пример цифрового офиса</span>
-          <span class="examples-arrow" aria-hidden="true">↓</span>
-        </a>
+        <div class="showcase reveal d2">
+          <a class="examples-link" href="https://nonna.tanem.ru/" target="_blank" rel="noreferrer">
+            <span>Посмотреть пример цифрового офиса</span>
+            <span class="examples-arrow" aria-hidden="true">↓</span>
+          </a>
 
-        <div class="preview reveal d2" aria-label="Пример цифрового офиса на ноутбуке и телефоне">
-          <img src="./office-preview.png" alt="Цифровой офис TANEM на ноутбуке и телефоне" />
+          <div class="preview" aria-label="Пример цифрового офиса на ноутбуке и телефоне">
+            <img src="./office-preview.png" alt="Цифровой офис TANEM на ноутбуке и телефоне" />
+          </div>
+
+          <div class="benefit-strip" aria-label="Преимущества TANEM">
+            <div class="benefit benefit-a"><span class="benefit-icon">∞</span><span>Бесплатно навсегда</span></div>
+            <div class="benefit benefit-b"><span class="benefit-icon">✓</span><span>Постоянная ссылка</span></div>
+            <div class="benefit benefit-c"><span class="benefit-icon">★</span><span>Отзывы и доверие</span></div>
+          </div>
         </div>
 
-        <div class="benefit-strip" aria-label="Преимущества TANEM">
-          <div class="benefit benefit-a"><span class="benefit-icon">∞</span><span>Бесплатно навсегда</span></div>
-          <div class="benefit benefit-b"><span class="benefit-icon">✓</span><span>Без ограничений</span></div>
-          <div class="benefit benefit-c"><span class="benefit-icon">✦</span><span>Всё для доверия</span></div>
-        </div>
-
-        <p class="hero-build reveal d4">Соберём и запустим сайт за вас</p>
-        <a class="hero-cta reveal d4" href="#contact">Получить цифровой офис бесплатно <span>→</span></a>
+        <p class="hero-build reveal d4">Сайт собираем и запускаем сами</p>
+        <a class="hero-cta reveal d4" href="#contact">Получить свой цифровой офис <span>→</span></a>
       </div>
     </section>
 
@@ -55,15 +54,13 @@
         <div class="contact-copy contact-reveal">
           <p class="contact-kicker">Связаться с TANEM</p>
           <h2>Хотите свой<br/>цифровой офис?</h2>
-          <a class="contact-direct" href="https://t.me/tanem_ru" target="_blank" rel="noreferrer">Написать в Telegram ↗</a>
+          <a class="contact-direct" href="https://t.me/tanem_ru" target="_blank" rel="noreferrer">Написать в Telegram <span>↗</span></a>
         </div>
 
         <div class="request-card contact-reveal">
           <div class="request-head">
-            <div>
-              <h3>Получить цифровой офис</h3>
-              <p>Оставьте контакты — и мы свяжемся с вами.</p>
-            </div>
+            <h3>Оставить заявку</h3>
+            <p>Имя, контакт и ссылка — этого достаточно.</p>
           </div>
 
           <form class="request-form" id="requestForm">
@@ -107,7 +104,7 @@
       entries.forEach((entry) => {
         if (entry.isIntersecting) entry.target.classList.add('in-view');
       });
-    }, { threshold: 0.18 });
+    }, { threshold: 0.16 });
     contactItems.forEach((item) => observer.observe(item));
   </script>
 </body>
