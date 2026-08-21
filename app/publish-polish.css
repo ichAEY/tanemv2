@@ -1,83 +1,129 @@
-html,body{background:#0b0b0f}
+html,body{background:#0a0a0d}
+.showcase{display:contents}
 
-@keyframes benefitIn{0%{opacity:0;transform:translateY(10px) scale(.985)}100%{opacity:1;transform:none}}
 @keyframes arrowSoft{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+@keyframes benefitRise{0%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:none}}
+@keyframes buttonShine{0%,7%{transform:translateX(-180%) skewX(-18deg);opacity:0}10%{opacity:.85}20%{transform:translateX(600%) skewX(-18deg);opacity:0}100%{transform:translateX(600%) skewX(-18deg);opacity:0}}
 
 @media(max-width:760px){
-  .hero{height:100svh;min-height:100svh;max-height:100svh}
-  .contact{height:100svh;min-height:100svh;max-height:100svh;overflow:hidden;padding:54px 0 max(12px,env(safe-area-inset-bottom))}
+  :root{--mobile-ink:#211d24;--mobile-muted:#6b626f;--mobile-purple:#5369c0;--mobile-line:rgba(42,34,47,.10)}
 
-  .nav{min-height:63px!important}
-  .hero-shell{padding-top:38px!important;padding-bottom:max(10px,env(safe-area-inset-bottom))!important}
-  .hero-title-wrap{flex:0 0 auto}
-  .eyebrow{margin-bottom:13px!important;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:8px!important;font-weight:500!important;letter-spacing:.16em!important}
-  .hero h1{font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:clamp(42px,11.1vw,52px)!important;line-height:1.02!important;font-weight:500!important;letter-spacing:-.045em!important}
+  body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",system-ui,sans-serif}
 
-  /* Ссылка максимально привязана к верхней границе самого макета. */
-  .examples-link{position:relative;z-index:4;margin-top:30px!important;margin-bottom:-34px!important;display:inline-flex!important;align-items:center!important;gap:6px!important;padding:0 0 3px!important;border-bottom:1px solid rgba(39,35,42,.20)!important;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:10.3px!important;font-weight:500!important;opacity:.82}
-  .examples-arrow{display:inline-block!important;color:#29242c!important;font-size:12px!important;line-height:1!important;animation:arrowSoft 1.35s ease-in-out infinite!important}
+  /* Два цельных экрана без визуального обрыва. */
+  .hero{height:100svh;min-height:100svh;max-height:100svh;overflow:hidden}
+  .contact{height:100svh;min-height:100svh;max-height:100svh;overflow:hidden;display:flex!important;flex-direction:column!important;padding:48px 0 max(12px,env(safe-area-inset-bottom))!important}
 
-  /* Ноутбук крупный и полностью статичный. */
-  .preview{flex:1 1 auto;min-height:236px!important;width:calc(100% + 136px)!important;margin:0 -68px!important;padding:0!important;display:grid!important;place-items:center!important}
-  .preview img{width:148%!important;max-width:none!important;max-height:min(445px,46svh)!important;animation:none!important;transform:none!important;filter:none!important}
-  .preview-glow,.preview-dots{display:none!important}
-  .hero-desc{display:none!important}
+  /* Верхняя линия и первый блок. */
+  .site-width{width:calc(100% - 30px)!important}
+  .nav{min-height:64px!important}
+  .brand{font-size:14px!important;font-weight:540!important;letter-spacing:.19em!important}
+  .nav-cta{font-size:11.2px!important;font-weight:540!important}
 
-  /* Три коротких, тактильных пункта без тяжёлой таблицы. */
-  .benefit-strip{width:100%!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:7px!important;margin:-12px auto 15px!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;backdrop-filter:none!important}
-  .benefit{min-width:0!important;min-height:42px!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:6px!important;padding:8px 7px!important;border:1px solid rgba(54,46,59,.09)!important;border-radius:13px!important;background:rgba(255,255,255,.30)!important;box-shadow:inset 0 1px rgba(255,255,255,.55)!important;color:#332e37!important;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:9.2px!important;font-weight:500!important;line-height:1!important;letter-spacing:-.012em!important;white-space:nowrap!important;text-align:center!important;opacity:0;animation:benefitIn .52s cubic-bezier(.2,.72,.2,1) forwards}
-  .benefit+.benefit{border-left:1px solid rgba(54,46,59,.09)!important}
-  .benefit-a{animation-delay:.28s}.benefit-b{animation-delay:.38s}.benefit-c{animation-delay:.48s}
-  .benefit-icon{width:auto!important;height:auto!important;display:inline!important;border-radius:0!important;background:transparent!important;color:#6158b5!important;font-size:13px!important;font-weight:600!important;line-height:1!important}
-  .benefit-copy,.benefit-copy strong,.benefit-copy small{display:inline!important;font:inherit!important;color:inherit!important}
+  .hero-shell{flex:1 1 auto!important;min-height:0!important;padding:30px 0 max(11px,env(safe-area-inset-bottom))!important;display:flex!important;flex-direction:column!important;align-items:center!important}
+  .hero-title-wrap{flex:0 0 auto!important;text-align:center!important}
+  .eyebrow{margin:0 0 11px!important;color:#756c78!important;font-size:8.2px!important;font-weight:620!important;letter-spacing:.15em!important;text-transform:uppercase!important}
+  .hero h1{margin:0!important;font-family:ui-rounded,"SF Pro Rounded","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif!important;font-size:clamp(42px,11.35vw,53px)!important;line-height:1.01!important;font-weight:600!important;letter-spacing:-.052em!important;color:var(--mobile-ink)!important}
 
-  .hero-build{margin:0 0 9px!important;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:11px!important;font-weight:500!important;color:#554e58!important}
-  .hero-cta{min-height:54px!important;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:12.8px!important;font-weight:600!important}
+  /* Вся зона ноутбука теперь один визуальный объект. Так можно заходить в прозрачные поля PNG. */
+  .showcase{position:relative!important;flex:1 1 auto!important;min-height:0!important;width:100%!important;margin-top:12px!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;overflow:visible!important}
 
-  /* Второй экран. */
-  .contact{display:flex!important;flex-direction:column!important}
-  .contact-grid{flex:1 1 auto!important;height:auto!important;grid-template-columns:1fr!important;gap:34px!important;align-content:start!important}
+  .examples-link{position:relative!important;z-index:5!important;margin:0 0 -48px!important;transform:translateY(24px)!important;display:inline-flex!important;align-items:center!important;gap:6px!important;padding:0 0 3px!important;border:0!important;border-bottom:1px solid rgba(41,35,46,.24)!important;color:#3e3742!important;font-size:10.3px!important;font-weight:560!important;letter-spacing:-.01em!important;opacity:.86!important;white-space:nowrap!important}
+  .examples-arrow{display:inline-block!important;font-size:12px!important;line-height:1!important;color:#312a35!important;animation:arrowSoft 1.35s ease-in-out infinite!important}
+
+  .preview{position:relative!important;z-index:1!important;flex:1 1 auto!important;min-height:230px!important;width:calc(100% + 150px)!important;margin:0 -75px!important;padding:0!important;display:grid!important;place-items:center!important;overflow:visible!important}
+  .preview img{width:158%!important;max-width:none!important;max-height:min(398px,43svh)!important;object-fit:contain!important;animation:none!important;transform:none!important;filter:none!important;opacity:1!important}
+  .preview-glow,.preview-dots,.hero-desc{display:none!important}
+
+  /* Один мягкий rail вместо трёх отдельных карточек. */
+  .benefit-strip{position:relative!important;z-index:6!important;width:100%!important;min-height:52px!important;margin:-34px auto 14px!important;padding:4px!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:0!important;border:1px solid rgba(49,40,54,.09)!important;border-radius:18px!important;background:rgba(255,255,255,.44)!important;box-shadow:0 8px 24px rgba(62,49,70,.06),inset 0 1px rgba(255,255,255,.68)!important;backdrop-filter:blur(12px)!important;-webkit-backdrop-filter:blur(12px)!important}
+  .benefit{min-width:0!important;min-height:42px!important;padding:0 5px!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:5px!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;color:#342e38!important;font-size:9.35px!important;font-weight:600!important;line-height:1!important;letter-spacing:-.018em!important;white-space:nowrap!important;opacity:0!important;animation:benefitRise .48s cubic-bezier(.2,.72,.2,1) forwards!important}
+  .benefit+.benefit{border-left:1px solid rgba(49,40,54,.10)!important}
+  .benefit-a{animation-delay:.22s!important}.benefit-b{animation-delay:.32s!important}.benefit-c{animation-delay:.42s!important}
+  .benefit-icon{width:19px!important;height:19px!important;display:grid!important;place-items:center!important;flex:0 0 19px!important;border-radius:50%!important;background:rgba(84,95,187,.085)!important;color:#565caf!important;font-size:11.5px!important;font-weight:700!important;line-height:1!important}
+
+  .hero-build{margin:0 0 9px!important;color:#4c4550!important;font-size:11.2px!important;font-weight:540!important;letter-spacing:-.008em!important;text-align:center!important}
+  .hero-cta{position:relative!important;overflow:hidden!important;width:100%!important;min-height:55px!important;padding:0 48px!important;border-radius:16px!important;background:linear-gradient(135deg,#6478ca 0%,#5368bf 48%,#41559f 100%)!important;color:#fff!important;font-size:13px!important;font-weight:650!important;letter-spacing:-.012em!important;box-shadow:0 13px 30px rgba(67,81,157,.28),inset 0 1px rgba(255,255,255,.26)!important}
+  .hero-cta::before{content:""!important;position:absolute!important;top:-22%!important;bottom:-22%!important;left:0!important;width:23%!important;background:linear-gradient(90deg,transparent,rgba(255,255,255,.34),transparent)!important;transform:translateX(-180%) skewX(-18deg)!important;animation:buttonShine 6.4s ease-in-out infinite!important}
+  .hero-cta span{right:18px!important;top:50%!important;transform:translateY(-50%)!important;font-size:19px!important;line-height:1!important}
+
+  /* Второй экран: крупная мысль, чёрная форма, нормальный футер. */
+  .contact{background:radial-gradient(circle at 12% 18%,rgba(118,87,170,.34),transparent 31%),radial-gradient(circle at 90% 18%,rgba(177,104,95,.16),transparent 29%),radial-gradient(circle at 78% 88%,rgba(76,91,173,.22),transparent 34%),linear-gradient(145deg,#09090c 0%,#0d0d12 52%,#0f0e14 100%)!important}
+  .contact::before{opacity:.055!important}
+  .contact-orb{opacity:.20!important;filter:blur(70px)!important}
+
+  .contact-grid{position:relative!important;z-index:2!important;flex:1 1 auto!important;min-height:0!important;display:grid!important;grid-template-columns:1fr!important;grid-template-rows:auto auto!important;align-content:start!important;gap:28px!important}
   .contact-copy{padding-top:2px!important}
-  .contact-kicker{margin-bottom:13px!important;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:9px!important;font-weight:500!important}
-  .contact h2{font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:40px!important;line-height:1.02!important;font-weight:500!important;letter-spacing:-.045em!important}
+  .contact-kicker{margin:0 0 12px!important;color:#a59eaa!important;font-size:9px!important;font-weight:620!important;letter-spacing:.15em!important}
+  .contact h2{margin:0!important;font-family:ui-rounded,"SF Pro Rounded","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif!important;font-size:42px!important;line-height:1!important;font-weight:600!important;letter-spacing:-.052em!important}
   .contact-copy>p:last-of-type{display:none!important}
-  .contact-direct{margin-top:17px!important;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:11.5px!important;font-weight:500!important}
+  .contact-direct{margin-top:17px!important;display:inline-flex!important;align-items:center!important;gap:5px!important;padding-bottom:4px!important;border-bottom:1px solid rgba(255,255,255,.26)!important;color:#f4f1f6!important;font-size:11.8px!important;font-weight:560!important}
+  .contact-direct span{font-size:13px!important}
 
-  .request-card{padding:18px!important;border:1px solid rgba(255,255,255,.10)!important;border-radius:20px!important;background:rgba(4,4,7,.74)!important;box-shadow:0 18px 52px rgba(0,0,0,.34)!important;backdrop-filter:blur(16px)!important}
-  .request-card:hover{transform:none!important;background:rgba(4,4,7,.78)!important}
-  .request-head{display:block!important;margin-bottom:15px!important}
-  .request-number{display:none!important}
-  .request-card h3{font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:19px!important;font-weight:500!important;letter-spacing:-.025em!important}
-  .request-card p{margin-top:6px!important;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:11px!important;font-weight:400!important;color:#8f8994!important}
-  .request-form label{gap:5px!important;margin-bottom:8px!important;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:10px!important;font-weight:400!important}
-  .request-form input{height:45px!important;font-size:16px!important;background:rgba(255,255,255,.045)!important}
-  .submit-btn{min-height:50px!important;margin-top:3px!important;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:12.6px!important;font-weight:600!important}
-  .submit-btn::after{top:50%!important;transform:translateY(-50%)!important;line-height:1!important}
+  .request-card{padding:19px!important;border:1px solid rgba(255,255,255,.09)!important;border-radius:22px!important;background:linear-gradient(180deg,rgba(10,10,14,.94),rgba(5,5,8,.97))!important;box-shadow:0 26px 68px rgba(0,0,0,.34),inset 0 1px rgba(255,255,255,.025)!important;backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important}
+  .request-card:hover{transform:none!important;background:linear-gradient(180deg,rgba(10,10,14,.94),rgba(5,5,8,.97))!important}
+  .request-head{display:block!important;margin:0 0 16px!important}
+  .request-card h3{margin:0!important;color:#f6f3f7!important;font-size:20px!important;font-weight:620!important;letter-spacing:-.025em!important}
+  .request-card p{margin:6px 0 0!important;color:#8e8792!important;font-size:11px!important;font-weight:420!important;line-height:1.4!important}
+  .form-row{grid-template-columns:1fr!important;gap:0!important}
+  .request-form label{gap:5px!important;margin-bottom:8px!important;color:#aaa3ae!important;font-size:10px!important;font-weight:500!important}
+  .request-form input{height:46px!important;padding:0 13px!important;border:1px solid rgba(255,255,255,.09)!important;border-radius:12px!important;background:rgba(255,255,255,.045)!important;color:#fff!important;font-size:16px!important;box-shadow:none!important}
+  .request-form input:focus{border-color:rgba(128,145,230,.55)!important;background:rgba(255,255,255,.06)!important;box-shadow:0 0 0 3px rgba(85,103,191,.09)!important}
+  .submit-btn{position:relative!important;min-height:50px!important;margin-top:3px!important;border-radius:13px!important;background:#f5f2f7!important;color:#141318!important;font-size:12.8px!important;font-weight:680!important;letter-spacing:-.01em!important;box-shadow:0 12px 28px rgba(0,0,0,.24)!important}
+  .submit-btn::after{right:17px!important;top:50%!important;transform:translateY(-50%)!important;font-size:18px!important;line-height:1!important}
 
-  .footer-line{margin-top:auto!important;padding-top:14px!important;padding-bottom:max(2px,env(safe-area-inset-bottom))!important;border-top:1px solid rgba(255,255,255,.10)!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-end!important;gap:5px!important;text-align:center!important}
-  .footer-brand{font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;color:#d8d3dc!important;font-size:11px!important;font-weight:500!important;letter-spacing:.20em!important}
-  .footer-meta{font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;color:#756f79!important;font-size:8.7px!important;font-weight:400!important}
+  .footer-line{position:relative!important;z-index:2!important;margin-top:auto!important;padding:14px 0 0!important;border-top:1px solid rgba(255,255,255,.085)!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-end!important;gap:5px!important;text-align:center!important}
+  .footer-brand{color:#ddd8e1!important;font-size:12px!important;font-weight:620!important;letter-spacing:.22em!important}
+  .footer-meta{color:#746e79!important;font-size:8.8px!important;font-weight:430!important;letter-spacing:.005em!important}
 }
 
-@media(max-height:700px) and (max-width:760px){
-  .hero-shell{padding-top:29px!important}
+@media(max-height:720px) and (max-width:760px){
+  .nav{min-height:60px!important}
+  .hero-shell{padding-top:22px!important}
+  .eyebrow{margin-bottom:8px!important;font-size:7.7px!important}
   .hero h1{font-size:38px!important}
-  .examples-link{margin-top:24px!important;margin-bottom:-30px!important}
-  .preview{min-height:190px!important;width:calc(100% + 122px)!important;margin:0 -61px!important}
-  .preview img{width:143%!important;max-height:40svh!important}
-  .benefit-strip{margin-top:-10px!important;margin-bottom:10px!important;gap:5px!important}
-  .benefit{min-height:36px!important;padding:6px 4px!important;font-size:8.3px!important;border-radius:11px!important}
-  .benefit-icon{font-size:11px!important}
-  .hero-build{font-size:10px!important;margin-bottom:6px!important}
-  .hero-cta{min-height:49px!important;font-size:11.5px!important}
+  .showcase{margin-top:5px!important}
+  .examples-link{transform:translateY(20px)!important;margin-bottom:-43px!important;font-size:9.4px!important}
+  .preview{min-height:190px!important;width:calc(100% + 132px)!important;margin:0 -66px!important}
+  .preview img{width:150%!important;max-height:38svh!important}
+  .benefit-strip{min-height:46px!important;margin-top:-30px!important;margin-bottom:10px!important}
+  .benefit{min-height:36px!important;font-size:8.6px!important;padding:0 3px!important}
+  .benefit-icon{width:17px!important;height:17px!important;flex-basis:17px!important;font-size:10px!important}
+  .hero-build{font-size:10.2px!important;margin-bottom:6px!important}
+  .hero-cta{min-height:49px!important;font-size:11.8px!important}
 
-  .contact{padding-top:34px!important}
-  .contact-grid{gap:18px!important}
+  .contact{padding-top:32px!important}
+  .contact-grid{gap:17px!important}
+  .contact-kicker{margin-bottom:8px!important}
   .contact h2{font-size:34px!important}
   .contact-direct{margin-top:10px!important}
-  .request-card{padding:13px!important}
-  .request-head{margin-bottom:9px!important}
+  .request-card{padding:13px!important;border-radius:18px!important}
+  .request-head{margin-bottom:10px!important}
+  .request-card h3{font-size:17px!important}
+  .request-card p{font-size:10px!important;margin-top:4px!important}
+  .request-form label{margin-bottom:6px!important;font-size:9.5px!important}
   .request-form input{height:40px!important}
-  .submit-btn{min-height:43px!important}
+  .submit-btn{min-height:43px!important;font-size:11.7px!important}
   .footer-line{padding-top:8px!important;gap:3px!important}
+}
+
+@media(max-height:620px) and (max-width:760px){
+  .hero-shell{padding-top:15px!important}
+  .hero h1{font-size:34px!important}
+  .examples-link{transform:translateY(17px)!important}
+  .preview{min-height:155px!important}
+  .preview img{max-height:34svh!important}
+  .benefit-strip{margin-top:-26px!important}
+  .benefit{font-size:8px!important}
+  .contact{padding-top:24px!important}
+  .contact-grid{gap:12px!important}
+  .contact h2{font-size:30px!important}
+  .request-card{padding:10px!important}
+  .request-form input{height:38px!important}
+  .submit-btn{min-height:40px!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .examples-arrow,.hero-cta::before,.benefit{animation:none!important;opacity:1!important}
+  .contact-orb{animation:none!important}
 }
