@@ -1,0 +1,22 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "tanem-analytics",
+  "main": "src/index.js",
+  "compatibility_date": "2026-08-01",
+  "durable_objects": {
+    "bindings": [
+      { "name": "ANALYTICS", "class_name": "SiteAnalytics" }
+    ]
+  },
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["SiteAnalytics"] }
+  ],
+  "triggers": {
+    "crons": ["0 6 * * 1"]
+  },
+  "vars": {
+    "REPORT_SITES": "nonna",
+    "SITE_NAMES": "{\"nonna\":\"Нонна · ClayTone\"}",
+    "SITE_ORIGINS": "{\"nonna\":[\"https://nonna.tanem.ru\",\"https://ichaey.github.io\"]}"
+  }
+}
