@@ -78,8 +78,15 @@ function isAllowedOrigin(request, env, siteId) {
 }
 
 function adminAuthorized(request, env) {
-  if (!env.ADMIN_KEY) return false;
-  return request.headers.get("Authorization") === `Bearer ${env.ADMIN_KEY}`;
+  if (!env.TELEGRAM_BOT_TOKEN) return false;
+  return request.headers.get("Authorization") === `Bearer ${env.TELEGRAM_BOT_TOKEN}`;
+}
+
+async function telegramWebhookSecret(env) {
+  if (!env.TELEGRAM_BOT_TOKEN) throw new Error("telegram_bot_token_missing");
+  const bytes = new TextEncoder().encode(`tanem-webhook:${env.TELEGRAM_BOT_TOKEN}`);
+  const digest = await crypto.subtle.digest("SHA-256", bytes);
+  return Array.from(new Uint8Array(digest), (b) => b.toString(16).padStart(2, "0")).join("").slice(0, 64);
 }
 
 function randomToken(bytes = 12) {
@@ -226,7 +233,8 @@ async function sendWeeklyReport(env, siteId) {
 }
 
 async function handleTelegramWebhook(request, env) {
-  if (!env.TELEGRAM_WEBHOOK_SECRET || request.headers.get("X-Telegram-Bot-Api-Secret-Token") !== env.TELEGRAM_WEBHOOK_SECRET) {
+  const expectedSecret = await telegramWebhookSecret(env);
+  if (request.headers.get("X-Telegram-Bot-Api-Secret-Token") !== expectedSecret) {
     return json({ ok: false }, 401);
   }
   const update = await request.json();
@@ -294,8 +302,7 @@ export default {
 
       if (url.pathname === "/admin/setup-telegram" && request.method === "POST") {
         const me = await telegramApi(env, "getMe", {});
-        const secretToken = env.TELEGRAM_WEBHOOK_SECRET;
-        if (!secretToken) return json({ ok: false, error: "telegram_webhook_secret_missing" }, 500);
+        const secretToken = await telegramWebhookSecret(env);
         const webhookUrl = `${url.origin}/telegram/webhook`;
         await telegramApi(env, "setWebhook", { url: webhookUrl, secret_token: secretToken, allowed_updates: ["message"] });
         return json({ ok: true, bot: `@${me.username}`, webhook: webhookUrl });
