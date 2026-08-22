@@ -16,15 +16,13 @@
 
 ## Секреты
 
-После входа в Cloudflare задать три секрета:
+Для Worker нужен только один продуктовый секрет:
 
 ```bash
 npx wrangler secret put TELEGRAM_BOT_TOKEN
-npx wrangler secret put TELEGRAM_WEBHOOK_SECRET
-npx wrangler secret put ADMIN_KEY
 ```
 
-`TELEGRAM_WEBHOOK_SECRET` и `ADMIN_KEY` — любые длинные случайные строки. Токен бота выдает BotFather.
+Токен выдаёт BotFather. Он же используется как ключ для закрытых admin-endpoint'ов; отдельные `ADMIN_KEY` и webhook-secret не нужны — webhook-secret Worker вычисляет сам.
 
 ## Деплой
 
@@ -39,7 +37,7 @@ npx wrangler deploy
 
 ```bash
 curl -X POST \
-  -H "Authorization: Bearer $ADMIN_KEY" \
+  -H "Authorization: Bearer $TELEGRAM_BOT_TOKEN" \
   "https://<worker>/admin/setup-telegram"
 ```
 
@@ -47,7 +45,7 @@ curl -X POST \
 
 ```bash
 curl -X POST \
-  -H "Authorization: Bearer $ADMIN_KEY" \
+  -H "Authorization: Bearer $TELEGRAM_BOT_TOKEN" \
   "https://<worker>/admin/connect-link?site=nonna"
 ```
 
@@ -55,7 +53,7 @@ curl -X POST \
 
 ```bash
 curl -X POST \
-  -H "Authorization: Bearer $ADMIN_KEY" \
+  -H "Authorization: Bearer $TELEGRAM_BOT_TOKEN" \
   "https://<worker>/admin/send-test?site=nonna"
 ```
 
