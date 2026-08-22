@@ -40,6 +40,19 @@ jobs:
             -H "Authorization: Bearer $TELEGRAM_BOT_TOKEN" \
             "$WORKER_URL/admin/setup-telegram"
 
+      - name: Create Nonna Telegram connection link
+        env:
+          WORKER_URL: ${{ steps.deploy.outputs.deployment-url }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: |
+          RESPONSE=$(curl --fail --silent --show-error -X POST \
+            -H "Authorization: Bearer $TELEGRAM_BOT_TOKEN" \
+            "$WORKER_URL/admin/connect-link?site=nonna")
+          CONNECT_LINK=$(printf '%s' "$RESPONSE" | python -c 'import json,sys; print(json.load(sys.stdin)["link"])')
+          echo "### TANEM Analytics — подключение Telegram" >> "$GITHUB_STEP_SUMMARY"
+          echo "Откройте ссылку в течение 15 минут после запуска workflow и нажмите Start:" >> "$GITHUB_STEP_SUMMARY"
+          echo "$CONNECT_LINK" >> "$GITHUB_STEP_SUMMARY"
+
       - name: Publish deployment URL
         env:
           WORKER_URL: ${{ steps.deploy.outputs.deployment-url }}
